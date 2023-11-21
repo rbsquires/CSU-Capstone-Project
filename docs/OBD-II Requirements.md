@@ -23,7 +23,7 @@ Document #002
     - Priority: 2
     - Dependencies: 1
 
-    ![Main-Menu-GUI-Landscape-dark/light-picture] (../media/images/Original Mockups/OBD-II Buddy Main GUI.JPG)
+    ![Main-Menu-GUI-Landscape-dark/light-picture](https://github.com/rbsquires/CSU-Capstone-Project/blob/main/media/images/Original%20Mockups/OBD-II%20Buddy%20Main%20Menu%20GUI.JPG)
 
 3. Requirement 3:
     - Type: Functional
@@ -33,7 +33,7 @@ Document #002
     - Priority: 3
     - Dependencies: 1-2
 
-    ![View-Guages-GUI-Landscape-dark/light-picture] (../media/images/Original Mockups/OBD-II Buddy View Guages GUI.JPG)
+    ![View-Guages-GUI-Landscape-dark/light-picture](https://github.com/rbsquires/CSU-Capstone-Project/blob/main/media/images/Original%20Mockups/OBD-II%20Buddy%20View%20Guages%20GUI.JPG)
 
 4. Requirement 4:
     - Type: Functional
@@ -43,7 +43,7 @@ Document #002
     - Priority: 3
     - Dependencies: 1-2
 
-    ![Code-Scanner-GUI-Landscape-dark/light-picture](../media/images/Original Mockups/OBD-II Buddy Code Scanner GUI.JPG)
+    ![Code-Scanner-GUI-Landscape-dark/light-picture](https://github.com/rbsquires/CSU-Capstone-Project/blob/main/media/images/Original%20Mockups/OBD-II%20Buddy%20Code%20Scanner%20GUI.JPG)
 
 5. Requirement 5:
     - Type: Functional
@@ -117,9 +117,9 @@ Document #002
     - Priority: 8
     - Dependencies: 5
 
-    ![App-Preference-Check-GUI-Landscape-dark/light-picture] (../media/images/Original Mockups/OBD-II Buddy Application Preference.JPG)
+    ![App-Preference-Check-GUI-Landscape-dark/light-picture](https://github.com/rbsquires/CSU-Capstone-Project/blob/main/media/images/Original%20Mockups/OBD-II%20Buddy%20Application%20Preference.JPG)
     
-1.  Requirement 14:
+14. Requirement 14:
     - Type: Usability
     - Description: Save Preferences Check (Yes Button)
     - Rationale: The Yes button will allow the user to save their preferences and close out the application.
@@ -127,7 +127,7 @@ Document #002
     - Priority: 9
     - Dependencies: 13
 
-2.  Requirement 15:
+15. Requirement 15:
     - Type: Usability
     - Description: Save Preferences Check (No Button)
     - Rationale: The No button will allow the user to return to the Main Menu GUI instead of saving preferences and exiting the application.

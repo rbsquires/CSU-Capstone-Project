@@ -60,9 +60,9 @@ request and response
 ### Approach:
 I will test each component of my application listed above for proper operation. This will be done manually, both on the iPhone and iPad. For a test to pass, it must pass each test on both devices. Once all system testing passes, I will conduct user testing of the application.
 
-### <a href="../media/pdf/OBD-II Buddy Test Plan.pdf" target="_blank">Item Pass/Fail Criteria and Results:</a>
+### <a href="https://github.com/rbsquires/CSU-Capstone-Project/blob/main/media/pdf/OBD-II%20Buddy%20Test%20Plan.pdf" target="_blank">Item Pass/Fail Criteria and Results:</a>
 
-![TestPlan](../media/pdf/OBD-II_Buddy_Test_Plan.pdf)
+![TestPlan](https://github.com/rbsquires/CSU-Capstone-Project/blob/main/media/pdf/OBD-II%20Buddy%20Test%20Plan.pdf)
 
 ## User Testing
 
@@ -113,12 +113,12 @@ I will allow users to test the application and it's functionality. This will be 
 
 ### User Testing Results:
 
-![UI-Navigation] (.../media/images/User_Testing_Survey/UI_Navigation.png)
+![UI-Navigation](https://github.com/rbsquires/CSU-Capstone-Project/blob/main/media/images/User%20Testing%20Survey/UI%20Navigation.png)
 
-![UI-Response] (../media/images/User Testing Survey/UI Response.png)
+![UI-Response](https://github.com/rbsquires/CSU-Capstone-Project/blob/main/media/images/User%20Testing%20Survey/UI%20Response.png)
 
-![UI-Spacing-and-Locations] (../media/images/User Testing Survey/UI Spacing and Locations.png)
+![UI-Spacing-and-Locations](https://github.com/rbsquires/CSU-Capstone-Project/blob/main/media/images/User%20Testing%20Survey/UI%20Spacing%20and%20Locations.png)
 
-![UI-Appearance] (../media/images/User Testing Survey/UI Appearance.png)
+![UI-Appearance](https://github.com/rbsquires/CSU-Capstone-Project/blob/main/media/images/User%20Testing%20Survey/UI%20Appearance.png)
 
-![Use-OBD-II-Buddy] (../media/images/User Testing Survey/Use OBD-II Buddy.png)
+![Use-OBD-II-Buddy](https://github.com/rbsquires/CSU-Capstone-Project/blob/main/media/images/User%20Testing%20Survey/Use%20OBD-II%20Buddy.png)
