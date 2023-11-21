@@ -60,9 +60,9 @@ request and response
 ### Approach:
 I will test each component of my application listed above for proper operation. This will be done manually, both on the iPhone and iPad. For a test to pass, it must pass each test on both devices. Once all system testing passes, I will conduct user testing of the application.
 
-### <a href="media/pdf/OBD-II Buddy Test Plan.pdf" target="_blank">Item Pass/Fail Criteria and Results:</a>
+### <a href="../media/pdf/OBD-II Buddy Test Plan.pdf" target="_blank">Item Pass/Fail Criteria and Results:</a>
 
-![TestPlan](media/pdf/OBD-II Buddy Test Plan.pdf)
+![TestPlan](../media/pdf/OBD-II Buddy Test Plan.pdf)
 
 ## User Testing
 
@@ -114,12 +114,12 @@ I will allow users to test the application and it's functionality. This will be 
 
 ### User Testing Results:
 
-![UI-Navigation](media/images/User Testing Survey/UI Navigation.png)
+![UI-Navigation](../media/images/User Testing Survey/UI Navigation.png)
 
-![UI-Response](media/images/User Testing Survey/UI Response.png)
+![UI-Response](../media/images/User Testing Survey/UI Response.png)
 
-![UI-Spacing-and-Locations](media/images/User Testing Survey/UI Spacing and Locations.png)
+![UI-Spacing-and-Locations](../media/images/User Testing Survey/UI Spacing and Locations.png)
 
-![UI-Appearance](media/images/User Testing Survey/UI Appearance.png)
+![UI-Appearance](../media/images/User Testing Survey/UI Appearance.png)
 
-![Use-OBD-II-Buddy](media/images/User Testing Survey/Use OBD-II Buddy.png)
+![Use-OBD-II-Buddy](../media/images/User Testing Survey/Use OBD-II Buddy.png)

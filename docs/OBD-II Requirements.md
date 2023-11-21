@@ -23,7 +23,7 @@ Document #002
     - Priority: 2
     - Dependencies: 1
 
-    ![Main Menu GUI Landscape dark/light picture] (media/images/Original Mockups/OBD-II Buddy Main GUI.JPG)
+    ![Main-Menu-GUI-Landscape-dark/light-picture] (../media/images/Original Mockups/OBD-II Buddy Main GUI.JPG)
 
 3. Requirement 3:
     - Type: Functional
@@ -33,7 +33,7 @@ Document #002
     - Priority: 3
     - Dependencies: 1-2
 
-    ![View Guages GUI Landscape dark/light picture] (media/images/Original Mockups/OBD-II Buddy View Guages GUI.JPG)
+    ![View-Guages-GUI-Landscape-dark/light-picture] (../media/images/Original Mockups/OBD-II Buddy View Guages GUI.JPG)
 
 4. Requirement 4:
     - Type: Functional
@@ -43,7 +43,7 @@ Document #002
     - Priority: 3
     - Dependencies: 1-2
 
-    ![Code Scanner GUI Landscape dark/light picture](media/images/Original Mockups/OBD-II Buddy Code Scanner GUI.JPG)
+    ![Code-Scanner-GUI-Landscape-dark/light-picture](../media/images/Original Mockups/OBD-II Buddy Code Scanner GUI.JPG)
 
 5. Requirement 5:
     - Type: Functional
@@ -117,7 +117,7 @@ Document #002
     - Priority: 8
     - Dependencies: 5
 
-    ![App Preference Check GUI Landscape dark/light picture] (media/images/Original Mockups/OBD-II Buddy Application Preference.JPG)
+    ![App-Preference-Check-GUI-Landscape-dark/light-picture] (../media/images/Original Mockups/OBD-II Buddy Application Preference.JPG)
     
 1.  Requirement 14:
     - Type: Usability
