@@ -1,4 +1,4 @@
-# Student Details:
+# Student Details
 Name: Robert Squires  
 Degree/Major: Bachelor of Science in Computer Science  
 Project Advisor: Dr. Hayes  
@@ -6,7 +6,7 @@ Expected Graduation Date: December 2023
 
 Document #002
 
-# Requirements Documentation:
+# Requirements Documentation
 1. Requirement 1:
     - Type: Functional
     - Description: Bluetooth ELM 327 OBD-II connector

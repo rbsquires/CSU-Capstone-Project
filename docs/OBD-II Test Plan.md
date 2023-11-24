@@ -61,14 +61,14 @@ request and response
 I will test each component of my application listed above for proper operation. This will be done manually, both on the iPhone and iPad. For a test to pass, it must pass each test on both devices. Once all system testing passes, I will conduct user testing of the application.
 
 ### Item Pass/Fail Criteria and Results:
-<a href="https://github.com/rbsquires/CSU-Capstone-Project/blob/main/media/pdf/OBD-II%20Buddy%20Test%20Plan.pdf" target="_blank">Click to view test criteria and results</a>
+<a href="https://github.com/rbsquires/CSU-Capstone-Project/blob/main/media/pdf/OBD-II%20Buddy%20Test%20Plan.pdf" target="_blank">View test criteria and results</a>
 
 ## User Testing
 
 ### Test Items:
 
 - iPhone 14 Pro (iOS 17.1.1)
-- iPad Pro (iPadOS 17.0.3)
+- iPad Pro 12" (iPadOS 17.0.3)
 - iOS V-Link OBD-II BLE Adapter
 
 ### Features to be Tested:

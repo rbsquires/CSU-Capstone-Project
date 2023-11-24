@@ -7,18 +7,46 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A615EFA2B0FE5A4008BDEDB /* iPadOSContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A615EF92B0FE5A4008BDEDB /* iPadOSContentView.swift */; };
 		3AAA62712B0C552E007986E0 /* OBD_II_BuddyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAA62702B0C552E007986E0 /* OBD_II_BuddyApp.swift */; };
-		3AAA62732B0C552E007986E0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAA62722B0C552E007986E0 /* ContentView.swift */; };
+		3AAA62732B0C552E007986E0 /* iOSContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAA62722B0C552E007986E0 /* iOSContentView.swift */; };
 		3AAA62752B0C552F007986E0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3AAA62742B0C552F007986E0 /* Assets.xcassets */; };
 		3AAA62782B0C552F007986E0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3AAA62772B0C552F007986E0 /* Preview Assets.xcassets */; };
+		3AB3D12C2B0E830B00964426 /* BluetoothService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB3D12B2B0E830B00964426 /* BluetoothService.swift */; };
+		3AB3D12E2B0E834300964426 /* DataParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB3D12D2B0E834300964426 /* DataParser.swift */; };
+		3AB3D1302B0E838000964426 /* AvailableDeviceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB3D12F2B0E838000964426 /* AvailableDeviceView.swift */; };
+		3AB3D1322B0E839100964426 /* BluetoothConnectionViewToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB3D1312B0E839100964426 /* BluetoothConnectionViewToolbar.swift */; };
+		3AB3D1342B0E839F00964426 /* iOSLiveDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB3D1332B0E839F00964426 /* iOSLiveDataView.swift */; };
+		3AB3D1362B0E83B000964426 /* SensorListView0.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB3D1352B0E83B000964426 /* SensorListView0.swift */; };
+		3AB3D1382B0E83B700964426 /* SensorListView1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB3D1372B0E83B700964426 /* SensorListView1.swift */; };
+		3AB3D13A2B0E83C600964426 /* SensorListView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB3D1392B0E83C600964426 /* SensorListView2.swift */; };
+		3AB3D13C2B0E83D000964426 /* SensorListView3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB3D13B2B0E83D000964426 /* SensorListView3.swift */; };
+		3AB3D13E2B0E83DA00964426 /* TroubleCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB3D13D2B0E83DA00964426 /* TroubleCodeView.swift */; };
+		3AB3D1402B0E83E200964426 /* VehicleInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB3D13F2B0E83E200964426 /* VehicleInfoView.swift */; };
+		3AB3D1422B0E91FA00964426 /* iPadOSLiveDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB3D1412B0E91FA00964426 /* iPadOSLiveDataView.swift */; };
+		3AB3D1442B0E92AA00964426 /* iPadOSBlankView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB3D1432B0E92AA00964426 /* iPadOSBlankView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3A615EF92B0FE5A4008BDEDB /* iPadOSContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iPadOSContentView.swift; sourceTree = "<group>"; };
 		3AAA626D2B0C552E007986E0 /* OBD-II Buddy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "OBD-II Buddy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AAA62702B0C552E007986E0 /* OBD_II_BuddyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBD_II_BuddyApp.swift; sourceTree = "<group>"; };
-		3AAA62722B0C552E007986E0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		3AAA62722B0C552E007986E0 /* iOSContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSContentView.swift; sourceTree = "<group>"; };
 		3AAA62742B0C552F007986E0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3AAA62772B0C552F007986E0 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		3AB3D12B2B0E830B00964426 /* BluetoothService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothService.swift; sourceTree = "<group>"; };
+		3AB3D12D2B0E834300964426 /* DataParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataParser.swift; sourceTree = "<group>"; };
+		3AB3D12F2B0E838000964426 /* AvailableDeviceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableDeviceView.swift; sourceTree = "<group>"; };
+		3AB3D1312B0E839100964426 /* BluetoothConnectionViewToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothConnectionViewToolbar.swift; sourceTree = "<group>"; };
+		3AB3D1332B0E839F00964426 /* iOSLiveDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSLiveDataView.swift; sourceTree = "<group>"; };
+		3AB3D1352B0E83B000964426 /* SensorListView0.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorListView0.swift; sourceTree = "<group>"; };
+		3AB3D1372B0E83B700964426 /* SensorListView1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorListView1.swift; sourceTree = "<group>"; };
+		3AB3D1392B0E83C600964426 /* SensorListView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorListView2.swift; sourceTree = "<group>"; };
+		3AB3D13B2B0E83D000964426 /* SensorListView3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorListView3.swift; sourceTree = "<group>"; };
+		3AB3D13D2B0E83DA00964426 /* TroubleCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TroubleCodeView.swift; sourceTree = "<group>"; };
+		3AB3D13F2B0E83E200964426 /* VehicleInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleInfoView.swift; sourceTree = "<group>"; };
+		3AB3D1412B0E91FA00964426 /* iPadOSLiveDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iPadOSLiveDataView.swift; sourceTree = "<group>"; };
+		3AB3D1432B0E92AA00964426 /* iPadOSBlankView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iPadOSBlankView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +60,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3A615EFB2B0FE68A008BDEDB /* iPadOS */ = {
+			isa = PBXGroup;
+			children = (
+				3A615EF92B0FE5A4008BDEDB /* iPadOSContentView.swift */,
+				3AB3D1412B0E91FA00964426 /* iPadOSLiveDataView.swift */,
+				3AB3D1432B0E92AA00964426 /* iPadOSBlankView.swift */,
+			);
+			path = iPadOS;
+			sourceTree = "<group>";
+		};
+		3A615EFC2B0FE6BD008BDEDB /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				3AAA62722B0C552E007986E0 /* iOSContentView.swift */,
+				3AB3D1332B0E839F00964426 /* iOSLiveDataView.swift */,
+			);
+			path = iOS;
+			sourceTree = "<group>";
+		};
 		3AAA62642B0C552E007986E0 = {
 			isa = PBXGroup;
 			children = (
@@ -52,7 +99,18 @@
 			isa = PBXGroup;
 			children = (
 				3AAA62702B0C552E007986E0 /* OBD_II_BuddyApp.swift */,
-				3AAA62722B0C552E007986E0 /* ContentView.swift */,
+				3AB3D12B2B0E830B00964426 /* BluetoothService.swift */,
+				3AB3D12D2B0E834300964426 /* DataParser.swift */,
+				3A615EFC2B0FE6BD008BDEDB /* iOS */,
+				3A615EFB2B0FE68A008BDEDB /* iPadOS */,
+				3AB3D12F2B0E838000964426 /* AvailableDeviceView.swift */,
+				3AB3D1312B0E839100964426 /* BluetoothConnectionViewToolbar.swift */,
+				3AB3D1352B0E83B000964426 /* SensorListView0.swift */,
+				3AB3D1372B0E83B700964426 /* SensorListView1.swift */,
+				3AB3D1392B0E83C600964426 /* SensorListView2.swift */,
+				3AB3D13B2B0E83D000964426 /* SensorListView3.swift */,
+				3AB3D13D2B0E83DA00964426 /* TroubleCodeView.swift */,
+				3AB3D13F2B0E83E200964426 /* VehicleInfoView.swift */,
 				3AAA62742B0C552F007986E0 /* Assets.xcassets */,
 				3AAA62762B0C552F007986E0 /* Preview Content */,
 			);
@@ -137,8 +195,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3AAA62732B0C552E007986E0 /* ContentView.swift in Sources */,
+				3AAA62732B0C552E007986E0 /* iOSContentView.swift in Sources */,
+				3AB3D1362B0E83B000964426 /* SensorListView0.swift in Sources */,
+				3AB3D1442B0E92AA00964426 /* iPadOSBlankView.swift in Sources */,
+				3AB3D1382B0E83B700964426 /* SensorListView1.swift in Sources */,
+				3AB3D13C2B0E83D000964426 /* SensorListView3.swift in Sources */,
+				3AB3D1422B0E91FA00964426 /* iPadOSLiveDataView.swift in Sources */,
+				3AB3D1402B0E83E200964426 /* VehicleInfoView.swift in Sources */,
+				3AB3D12C2B0E830B00964426 /* BluetoothService.swift in Sources */,
+				3A615EFA2B0FE5A4008BDEDB /* iPadOSContentView.swift in Sources */,
+				3AB3D12E2B0E834300964426 /* DataParser.swift in Sources */,
+				3AB3D1302B0E838000964426 /* AvailableDeviceView.swift in Sources */,
+				3AB3D13E2B0E83DA00964426 /* TroubleCodeView.swift in Sources */,
+				3AB3D1342B0E839F00964426 /* iOSLiveDataView.swift in Sources */,
 				3AAA62712B0C552E007986E0 /* OBD_II_BuddyApp.swift in Sources */,
+				3AB3D1322B0E839100964426 /* BluetoothConnectionViewToolbar.swift in Sources */,
+				3AB3D13A2B0E83C600964426 /* SensorListView2.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -275,6 +347,7 @@
 				DEVELOPMENT_TEAM = D6X9HSD3YU;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "OBD-II Buddy requires the use of BlueTooth to communicate throught the BLE adapter to the vehicle.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -304,6 +377,7 @@
 				DEVELOPMENT_TEAM = D6X9HSD3YU;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "OBD-II Buddy requires the use of BlueTooth to communicate throught the BLE adapter to the vehicle.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

@@ -2,16 +2,25 @@
 //  OBD_II_BuddyApp.swift
 //  OBD-II Buddy
 //
-//  Created by Bobby Squires on 11/20/23.
+//  Created by Bobby Squires on 8/14/23.
 //
 
 import SwiftUI
 
 @main
 struct OBD_II_BuddyApp: App {
+    @StateObject var bluetoothService = BluetoothService()
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            if UIDevice.current.userInterfaceIdiom == .pad {
+                iPadOSContentView()
+                    .environmentObject(bluetoothService)
+            }
+            else {
+                iOSContentView()
+                    .environmentObject(bluetoothService)
+            }
         }
     }
 }
