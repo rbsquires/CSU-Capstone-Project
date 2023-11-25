@@ -1,13 +1,13 @@
 //
-//  LiveDataView.swift
+//  iOSLiveDataView.swift
 //  OBD-II Buddy
 //
 //  Created by Bobby Squires on 8/14/23.
 //
 
 import SwiftUI
-// Our custom view modifier to track rotation and
-// call our action
+
+// Custom View modifier to track rotation andcall our action
 struct DeviceRotationViewModifier: ViewModifier {
     let action: (UIDeviceOrientation) -> Void
     
@@ -31,13 +31,13 @@ struct iOSLiveDataView: View {
     @EnvironmentObject var bluetoothService: BluetoothService
     @Environment(\.colorScheme) var colorScheme: ColorScheme
     @Environment(\.dismiss) var dismiss // environment object that keeps track of what is shown
-    let timer = Timer.publish(every: 1.5, tolerance: 0.5, on: .main, in: .common).autoconnect()
-    private var firstLoad = true
     @State private var showingSensors0 = false
     @State private var showingSensors1 = false
     @State private var showingSensors2 = false
     @State private var showingSensors3 = false
     @State private var orientation = UIDeviceOrientation.unknown
+    let timer = Timer.publish(every: 1.5, tolerance: 0.5, on: .main, in: .common).autoconnect()
+    private var firstLoad = true
     
     var body: some View {
         VStack {
@@ -58,7 +58,7 @@ struct iOSLiveDataView: View {
                             if bluetoothService.stopData && !showingSensors0 && !showingSensors1 && !showingSensors2 && !showingSensors3 {
                                 
                                 bluetoothService.requestData(index: 0)
-
+                                
                             }
                             else if showingSensors0 || showingSensors1 || showingSensors2 || showingSensors3 {
                                 print("requestData() is paused")
@@ -100,7 +100,6 @@ struct iOSLiveDataView: View {
                         .font(.title)
                         .bold()
                         
-                        //                        Text("\(bluetoothService.dataParser.vehicleInfo2.description)")
                         Text("\(bluetoothService.dataParser.PIDDescription[bluetoothService.dataParser.liveData[1].pidName] ?? "Nil")")
                             .bold()
                             .font(.subheadline)
@@ -108,7 +107,7 @@ struct iOSLiveDataView: View {
                     }
                 }.frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
             }
-
+            
             
             Spacer()
             Spacer()
@@ -163,7 +162,6 @@ struct iOSLiveDataView: View {
                     orientation = newOrientation
                 }
                 
-                
                 HStack(alignment: .center) {
                     VStack(alignment: .center) {
                         Button {
@@ -190,7 +188,6 @@ struct iOSLiveDataView: View {
         }
         .toolbar(content: BluetoothConnectionViewToolbar.init)
         .navigationBarBackButtonHidden(true) // hide the back button
-        //                .navigationBarHidden(true)
         
     }
 }

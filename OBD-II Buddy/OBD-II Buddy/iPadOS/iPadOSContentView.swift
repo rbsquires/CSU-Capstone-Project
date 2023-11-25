@@ -1,5 +1,5 @@
 //
-//  ContentViewIPADOS.swift
+//  iPadOSContentViewIPADOS.swift
 //  OBD-II Buddy
 //
 //  Created by Bobby Squires on 11/23/23.
@@ -10,8 +10,6 @@ import SwiftUI
 struct iPadOSContentView: View {
     @EnvironmentObject var bluetoothService: BluetoothService
     @State private var isRotating = 0.0
-    // Remove Below
-    @State var iPadShowBlank: Bool = false //Maybe make this an observable object? look up how to pass a bool to another view and alter it across views
     
     var body: some View {
         
@@ -62,12 +60,6 @@ struct iPadOSContentView: View {
             }
             .environmentObject(bluetoothService)
         }
-        // Remove below
-//        if I can't alter bool value from content view inside of livedataview, delete this and the function below
-//        else if bluetoothService.closedLiveData {
-//            NavigationLink(destination: iPadOSBlankView(), isActive: $iPadShowBlank) {
-//            }
-//        }
         else {
             NavigationView {
                 VStack {
@@ -84,11 +76,12 @@ struct iPadOSContentView: View {
                             .cornerRadius(10)
                         
                     }
-                    .opacity(bluetoothService.closedLiveData ? 0.25 : 1)
-                    .disabled(bluetoothService.closedLiveData)
                     .simultaneousGesture(TapGesture().onEnded{
-                        if !bluetoothService.stopData && !bluetoothService.closedLiveData {
+                        if !bluetoothService.stopData {
                             bluetoothService.stopData.toggle()
+                            if bluetoothService.closedLiveData{
+                                bluetoothService.closedLiveData.toggle()
+                            }
                         }
                     })
                     
@@ -109,7 +102,6 @@ struct iPadOSContentView: View {
                             print("closedLiveData = \(bluetoothService.closedLiveData)")
                         }
                     })
-                    
                     
                     Spacer()
                     
@@ -134,19 +126,12 @@ struct iPadOSContentView: View {
                 .navigationTitle("OBD-II Buddy")
                 .toolbar(content: BluetoothConnectionViewToolbar.init)
                 
-                
-                
             }
             .environmentObject(bluetoothService)
-            
             
             Spacer()
             
         }
-    }
-    
-    func toggleBlankScreen() {
-        iPadShowBlank.toggle()
     }
 }
 

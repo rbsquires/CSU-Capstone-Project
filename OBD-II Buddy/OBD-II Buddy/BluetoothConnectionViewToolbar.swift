@@ -37,7 +37,6 @@ struct BluetoothConnectionViewToolbar: View {
                     .foregroundColor(.red)
             }
         }
-//        .fontWeight(.bold)
     }
 }
 

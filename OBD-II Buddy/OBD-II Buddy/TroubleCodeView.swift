@@ -2,7 +2,7 @@
 //  TroubleCodeView.swift
 //  OBD-II Buddy
 //
-//  Created by Bobby Squires on 11/5/23.
+//  Created by Bobby Squires on 8/14/23.
 //
 
 import SwiftUI
@@ -20,36 +20,16 @@ struct TroubleCodeView: View {
                     .lineLimit(1)
                 Form {
                     List(bluetoothService.dataParser.dtcData, id: \.self) { item in
-                        //                VStack(alignment: .leading) {
                         Text(item)
                             .font(.headline)
                             .bold()
                             .lineLimit(1)
                             .foregroundColor(.primary)
                         
-                        //                    Text(peripheral.identifier.description)
-                        //                        .font(.footnote)
-                        //                        .lineLimit(1)
-                        
-                        //                }
-                        //                .onTapGesture {
-                        //                    bluetoothService.obdSensorPeripheral = peripheral
-                        //                    bluetoothService.selectedAdapterName = peripheral.name!
-                        //                    bluetoothService.selectedSensor = peripheral.identifier
-                        //
-                        //                    bluetoothService.connectToDevice(peripheral)
-                        //
-                        //                    print("Connecting to \(String(describing: peripheral.name)) from: (ContentView)")
-                        //
-                        ////                    self.presentationMode.wrappedValue.dismiss() // dismissing current view once the text is tabbed
-                        //
-                        //                }
-                        //                        .environmentObject(bluetoothService)
                     }
                     .navigationTitle("Diagnostic Trouble Codes")
                 }
                 .onAppear(perform: callData)
-                //                .background(Color.gray)
                 
                 Spacer()
                 
@@ -63,9 +43,6 @@ struct TroubleCodeView: View {
                 .foregroundColor(.primary)
                 .background(Color.blue)
                 .cornerRadius(10)
-                //                .font(.largeTitle)
-                //                .foregroundColor(.green)
-                //                .frame(alignment: .center)
                 
                 Spacer()
             }

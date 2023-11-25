@@ -9,8 +9,7 @@ import SwiftUI
 
 struct SensorListView3: View {
     @EnvironmentObject var bluetoothService: BluetoothService
-    @Environment(\.presentationMode) var presentationMode // environment object that keeps track of what is shown
-    //    var index: Int // Need to call this view with the index I am looking to change in LiveDataView()
+    @Environment(\.dismiss) var dismiss // environment object that keeps track of what is shown
     
     var body: some View {
         NavigationStack {
@@ -63,7 +62,7 @@ struct SensorListView3: View {
                     
                     bluetoothService.dataParser.populateLiveSensor()
                     
-                    self.presentationMode.wrappedValue.dismiss() // dismissing current view once the text is tabbed
+                    dismiss() // dismissing current view once the text is tabbed
                     
                 }
                 .disabled(sensor.inUse)

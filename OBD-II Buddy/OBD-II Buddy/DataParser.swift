@@ -128,8 +128,6 @@ class DataParser: ObservableObject {
             }
         }
         
-        //        liveSensors.append(SupportedSensor(pidName: "42", description: PIDDescription["42"] ?? "Nil", inUse: true))
-        
         print("Contents of liveSensors = \(liveSensors)")
     }
     

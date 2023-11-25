@@ -1,5 +1,5 @@
 //
-//  iPadLiveDataView.swift
+//  iPadOSLiveDataView.swift
 //  OBD-II Buddy
 //
 //  Created by Bobby Squires on 11/22/23.
@@ -11,20 +11,16 @@ struct iPadOSLiveDataView: View {
     @EnvironmentObject var bluetoothService: BluetoothService
     @Environment(\.colorScheme) var colorScheme: ColorScheme
     @Environment(\.dismiss) var dismiss // environment object that keeps track of what is shown
-    // Remove below
-//    @Binding var iPadShowView: Bool
-    
-    let timer = Timer.publish(every: 1.5, tolerance: 0.5, on: .main, in: .common).autoconnect()
-    private var firstLoad = true
-
     @State private var showingSensors0 = false
     @State private var showingSensors1 = false
     @State private var showingSensors2 = false
     @State private var showingSensors3 = false
+    let timer = Timer.publish(every: 1.5, tolerance: 0.5, on: .main, in: .common).autoconnect()
     
     
     var body: some View {
-        NavigationStack {
+        
+        if !bluetoothService.closedLiveData {
             VStack {
                 
                 Spacer()
@@ -88,46 +84,21 @@ struct iPadOSLiveDataView: View {
                 Spacer()
                 Spacer()
                 
-                // Remove below
-//                VStack {
-//                    Image(colorScheme == .light ? "App Logo (Light)" : "App Logo (Dark)")
-//                        .resizable()
-//                        .frame(width: 240, height: 240)
-//                    
-//                    Text("Double Tap Icon to Home Screen")
-//                        .fontWeight(.bold)
-//                        .font(.caption2)
-//                        .opacity(0.8)
-//                }
-//                .onTapGesture(count: 2) {
-//                    bluetoothService.stopData.toggle()
-//                    bluetoothService.closedLiveData.toggle()
-//                    bluetoothService.showiPadBlank.toggle()
-////                    iPadShowView.toggle()
-//                    print("closedLiveData = \(bluetoothService.closedLiveData)")
-//                    timer.upstream.connect().cancel()
-//                    dismiss()
-//                }
-                
-                
                 VStack {
-                    NavigationLink(destination: iPadOSBlankView()) {
-                        Image(colorScheme == .light ? "App Logo (Light)" : "App Logo (Dark)")
-                            .resizable()
-                            .frame(width: 240, height: 240)
-                            
-                    }.simultaneousGesture(TapGesture().onEnded{
-                        bluetoothService.stopData.toggle()
-                        bluetoothService.closedLiveData.toggle()
-                        print("closedLiveData = \(bluetoothService.closedLiveData)")
-                        timer.upstream.connect().cancel()
-                        dismiss()
-                    })
-                    
-                    Text("Tap Icon to Home")
+                    Image(colorScheme == .light ? "App Logo (Light)" : "App Logo (Dark)")
+                        .resizable()
+                        .frame(width: 240, height: 240)
+
+                    Text("Double Tap Icon to Stop Live Data")
                         .fontWeight(.bold)
-                        .font(.caption2)
+                        .font(.subheadline)
                         .opacity(0.8)
+                }
+                .onTapGesture(count: 2) {
+                    bluetoothService.stopData.toggle()
+                    bluetoothService.closedLiveData.toggle()
+                    timer.upstream.connect().cancel()
+                    dismiss()
                 }
 
                 Spacer()
@@ -178,8 +149,22 @@ struct iPadOSLiveDataView: View {
                 Spacer()
                 
             }
+            .navigationBarBackButtonHidden(true)
         }
-        .navigationBarHidden(true)
+        else {
+            ContentUnavailableView {
+                Image(colorScheme == .light ? "App Logo (Light)" : "App Logo (Dark)")
+                    .resizable()
+                    .frame(width: 480, height: 480)
+                
+                Text("Please select another option from the menu")
+
+            } description: {
+
+                Text("Live Data View, Trouble Code View or Vehicle Info View")
+            }
+            .navigationBarBackButtonHidden(true)
+        }
     }
 }
 

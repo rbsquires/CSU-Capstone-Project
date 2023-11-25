@@ -11,6 +11,7 @@ import SwiftUI
 struct OBD_II_BuddyApp: App {
     @StateObject var bluetoothService = BluetoothService()
     
+    // Calling specific views for iOS and iPadOS
     var body: some Scene {
         WindowGroup {
             if UIDevice.current.userInterfaceIdiom == .pad {
