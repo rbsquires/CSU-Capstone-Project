@@ -37,6 +37,20 @@ I propose making an open-source application that anyone could use on an Apple iP
 - MacBook Pro 14"
 - VGate BlueTooth (BLE) Adapter
 
+# Project Requirements
+
+### Software:
+- Xcode
+- GitHub
+
+### Hardware:
+- Mac to Run Xcode and load the selected device
+- iPhone running iOS 17.0 or later
+- iPad running iOS 17.0 or later
+- VGate BlueTooth (BLE) Adapter
+
+### Other:
+- Apple Developer Account
 
 # Project Implementation
   - This section details the design and features of the in paragraph form with references to the following:
@@ -46,16 +60,96 @@ I propose making an open-source application that anyone could use on an Apple iP
 # Test Plan
 
 ### System Testing:
-
+The following system testing will be conducted on both iPhone 14 Pro and iPad Pro
+- Check App Launch
+- Check Bluetooth scanning
+- Select and Pair with Bluetooth device
+- Loading screen works
+- App Home View
+- Functionality of 
+"Vehicle Info View" button
+- "Back" button functionality in Vehicle Info View
+- Functionality of 
+"Trouble Code View" button
+- "Back" button functionality in Trouble Code View
+- Functionality of the
+"Live Data View" button
+- Current sensor data
+request and response
+- Sensor 1 customization 
+(Selection)
+- Sensor 1 customization 
+(No Selection)
+- Sensor 2 customization 
+(Selection)
+- Sensor 2 customization 
+(No Selection)
+- Sensor 3 customization 
+(Selection)
+- Sensor 3 customization 
+(No Selection)
+- Sensor 4 customization 
+(Selection)
+- Sensor 4 customization 
+(No Selection)
+- "Back" button functionality in Live Data View
+- App disconnect/termination **debugger mode*
+- App termination
 
 ### User Testing:
+The following system testing will be conducted on both iPhone 14 Pro and iPad Pro
+- Check App Launch
+- Check Bluetooth scanning
+- Select and Pair with Bluetooth device
+- Loading screen works
+- App Home View
+- Functionality of 
+"Vehicle Info View" button
+- "Back" button functionality in Vehicle Info View
+- Functionality of 
+"Trouble Code View" button
+- "Back" button functionality in Trouble Code View
+- Functionality of the
+"Live Data View" button
+- Current sensor data
+request and response
+- Sensor 1 customization 
+(Selection)
+- Sensor 1 customization 
+(No Selection)
+- Sensor 2 customization 
+(Selection)
+- Sensor 2 customization 
+(No Selection)
+- Sensor 3 customization 
+(Selection)
+- Sensor 3 customization 
+(No Selection)
+- Sensor 4 customization 
+(Selection)
+- Sensor 4 customization 
+(No Selection)
+- "Back" button functionality in Live Data View
+- App disconnect/termination **debugger mode*
+- App termination
 
 # Test Results
 
 ### System Testing:
 
+<a href="https://github.com/rbsquires/CSU-Capstone-Project/blob/main/media/pdf/OBD-II%20Buddy%20Test%20Plan.pdf" target="_blank">View test criteria and results</a>
 
 ### User Testing:
+
+![UI-Navigation](https://github.com/rbsquires/CSU-Capstone-Project/blob/main/media/images/User%20Testing%20Survey/UI%20Navigation.png)
+
+![UI-Response](https://github.com/rbsquires/CSU-Capstone-Project/blob/main/media/images/User%20Testing%20Survey/UI%20Response.png)
+
+![UI-Spacing-and-Locations](https://github.com/rbsquires/CSU-Capstone-Project/blob/main/media/images/User%20Testing%20Survey/UI%20Spacing%20and%20Locations.png)
+
+![UI-Appearance](https://github.com/rbsquires/CSU-Capstone-Project/blob/main/media/images/User%20Testing%20Survey/UI%20Appearance.png)
+
+![Use-OBD-II-Buddy](https://github.com/rbsquires/CSU-Capstone-Project/blob/main/media/images/User%20Testing%20Survey/Use%20OBD-II%20Buddy.png)
 
 
 # Challenges Overcome
