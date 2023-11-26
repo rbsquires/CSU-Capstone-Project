@@ -20,7 +20,8 @@ This application will allow you connect to your vehicle's OBD-II port via Blueto
 Start by clicking the OBD-II Buddy app icon (see Fig 1).
 iPhone | iPad
 :-------------------------:|:-------------------------:
-![iPhone-App-Icon]([https://...Dark.png](https://github.com/rbsquires/CSU-Capstone-Project/blob/main/media/images/OBD-II%20Buddy%20Pictures/iPhone/iPhone%20App%20Icon.png))  |  ![iPad-App-Icon]([https://...Ocean.png](https://github.com/rbsquires/CSU-Capstone-Project/blob/main/media/images/OBD-II%20Buddy%20Pictures/iPad/iPad%20App%20Icon.png))
+![iPhone-App-Icon](https://github.com/rbsquires/CSU-Capstone-Project/blob/main/media/images/OBD-II%20Buddy%20Pictures/iPhone/iPhone%20App%20Icon.png) | ![iPad-App-Icon](https://github.com/rbsquires/CSU-Capstone-Project/blob/main/media/images/OBD-II%20Buddy%20Pictures/iPad/iPad%20App%20Icon.png)
+Fig 1. Device Home Screen
 
 ## Options
 
