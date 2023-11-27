@@ -11,7 +11,7 @@ Document #002
     - Type: Functional
     - Description: Bluetooth ELM 327 OBD-II connector
     - Rationale: Allows the application to communicate with the vehicle over the OBD-II CAN Bus.
-    - Fit Criterion: I will purchase from Amazon and ensure proper fitment to OBD-II receptical in my personal vehicle.  I will then connect the adapter to my iPhone through Bluetooth and using a 3rd party OBD-II application to ensure that the connector is functioning properly.
+    - Fit Criterion: I will purchase from Amazon and ensure proper fitment to OBD-II receptical in my personal vehicle.  I will then connect the adapter to my iPhone through Bluetooth and using a 3rd party OBD-II application I will ensure that the connector is functioning properly.
     - Priority: 1
     - Dependencies: n/a
 

@@ -135,7 +135,7 @@ Form {
 
 Editing PIDs:
 
-Inside DataParser.swift, the users can add or remove PIDs. When adding, ensure that you have the correct hex PID, it's data bytes returned, and it's description. Add the proper information into the dictionaries. Then, ensure that you add the hex PID to myPIDList[].
+Inside DataParser.swift, the users can add or remove PIDs. When adding, ensure that you have the correct hex PID, it's data bytes returned, data type returned and description. Next, add the information into each dictionary. Then, ensure that you add the hex PID to myPIDList[].
 
 ```Swift
 
