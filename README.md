@@ -1,6 +1,7 @@
 # OBD-II Buddy
+#### **iOS/iPadOS 17.0+ is required to run this application*
 
-This application will allow you connect to your vehicle's OBD-II port via Bluetooth BLE device, using your Apple Devices (i.e. iPhone, iPad, MacBook) to read information such as:
+This application will allow you connect to your vehicle's OBD-II port via Bluetooth BLE adapter, using your Apple Devices (iPhone & iPad) to read information such as:
 - Engine RPM
 - Coolant Temperature
 - Battery Voltage
@@ -11,8 +12,11 @@ This application will allow you connect to your vehicle's OBD-II port via Blueto
 
 - To get started, clone the repo.
 - Then open the project in Xcode.
+- Turn your iPhone or iPad to developer mode on
 - Connect your iPhone or iPad to your Mac.
 - Select your device in Xcode and press *cmd+r*
+
+**Once the app has been loaded onto your device, it will be useable as long as developer mode is on*
 
 ## Usage
 *Once you have OBD-II Buddy loaded onto your iPhone or iPad*
@@ -97,6 +101,7 @@ Fig 11. Vehicle Info View
 To exit the application, use typical Apple app closure. Swipe up from the bottom and dismiss the app. This will disconnect from the BLE adapter and end communication with the vehicle.
 
 ## Options
+
 
 ## Testing
 
