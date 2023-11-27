@@ -127,17 +127,19 @@ Form {
         || peripheral.identifier.description == "4BCC77F9-32AC-0C74-BB65-365ECF59F447" {
             ...
         }
+        ...
     }
+    ...
 }
 ```
 
 Editing PIDs:
 
-Inside DataParser.swift, the users can add or remove PIDs. When adding, ensure that you have the correct hex pid, it's data bytes returned, and it's description. Add the proper information into the dictionaries. Then, ensure that you add the hex PID to myPIDList.
+Inside DataParser.swift, the users can add or remove PIDs. When adding, ensure that you have the correct hex PID, it's data bytes returned, and it's description. Add the proper information into the dictionaries. Then, ensure that you add the hex PID to myPIDList[].
 
 ```Swift
 
-  @Published var myPIDList = [String](arrayLiteral: "04", "05", "0A", "0B", "0C", "0D", "0F", "10", "11", "42", "51")
+@Published var myPIDList = [String](arrayLiteral: "04", "05", "0A", "0B", "0C", "0D", "0F", "10", "11", "42", "51")
 
 let PIDBytes = [
     "04": 1,
