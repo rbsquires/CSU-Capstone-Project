@@ -11,6 +11,7 @@ struct TroubleCodeView: View {
     @EnvironmentObject var bluetoothService: BluetoothService
     
     var body: some View {
+        // If there are DTCs, displays each code on a line in the list (Check engine light on dash)
         if !bluetoothService.dataParser.dtcData.isEmpty {
             VStack {
                 Text("Search the DTCs below online for further info.")
@@ -47,6 +48,7 @@ struct TroubleCodeView: View {
                 Spacer()
             }
         }
+        // If no DTCs, displays that information to the user (No check engine light on dash)
         else {
             VStack {
                 Form {
@@ -63,6 +65,7 @@ struct TroubleCodeView: View {
         }
     }
     
+    // Function used to request DTC information from the ECU in BluetoothService
     func callData() {
         bluetoothService.requestData(index: 1)
     }

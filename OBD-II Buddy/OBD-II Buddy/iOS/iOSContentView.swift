@@ -12,7 +12,7 @@ struct iOSContentView: View {
     @State private var isRotating = 0.0
     
     var body: some View {
-        
+        // Shows loading screen during Bluetooth init and vehicle info request
         if bluetoothService.populateData {
             NavigationStack {
                 ContentUnavailableView {
@@ -36,6 +36,7 @@ struct iOSContentView: View {
                 .navigationTitle("OBD-II Buddy")
             }
         }
+        // Shows available Bluetooth peripherals button
         else if bluetoothService.peripheralStatus != .connected && !bluetoothService.populateData {
             NavigationStack {
                 VStack {
@@ -60,44 +61,26 @@ struct iOSContentView: View {
             }
             .environmentObject(bluetoothService)
         }
+        // Main menu when connected to OBD-II Bluetooth device
         else {
             NavigationStack {
                 VStack {
                     
                     Spacer()
                     
-                    if UIDevice.current.userInterfaceIdiom == .pad {
-                        NavigationLink(destination: iPadOSLiveDataView()) {
-                            Text("Live Data View")
-                                .bold()
-                                .frame(width: 280, height: 50)
-                                .font(.body)
-                                .foregroundColor(.primary)
-                                .background(Color.blue)
-                                .cornerRadius(10)
-                            
-                        }.simultaneousGesture(TapGesture().onEnded{
-                            bluetoothService.stopData.toggle()
-
-                        })
+                    NavigationLink(destination: iOSLiveDataView()) {
+                        Text("Live Data View")
+                            .bold()
+                            .frame(width: 280, height: 50)
+                            .font(.body)
+                            .foregroundColor(.primary)
+                            .background(Color.blue)
+                            .cornerRadius(10)
                         
-                    }
-                    else {
-                        NavigationLink(destination: iOSLiveDataView()) {
-                            Text("Live Data View")
-                                .bold()
-                                .frame(width: 280, height: 50)
-                                .font(.body)
-                                .foregroundColor(.primary)
-                                .background(Color.blue)
-                                .cornerRadius(10)
-                            
-                        }.simultaneousGesture(TapGesture().onEnded{
-                            bluetoothService.stopData.toggle()
+                    }.simultaneousGesture(TapGesture().onEnded{
+                        bluetoothService.stopData.toggle()
 
-                        })
-                        
-                    }
+                    })
                     
                     Spacer()
                     
@@ -133,7 +116,6 @@ struct iOSContentView: View {
                 
             }
             .environmentObject(bluetoothService)
-            
             
             Spacer()
             

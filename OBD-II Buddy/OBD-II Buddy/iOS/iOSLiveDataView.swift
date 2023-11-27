@@ -45,6 +45,7 @@ struct iOSLiveDataView: View {
             Spacer()
             
             HStack {
+                // Shows Live Data for Sensor 0 (Top-Left)
                 HStack {
                     VStack(alignment: .center) {
                         Button {
@@ -78,6 +79,7 @@ struct iOSLiveDataView: View {
                     }
                 }.frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
                 
+                // Extra horizontal spacer if landscape view detected
                 Group {
                     if orientation.isLandscape {
                         HStack(alignment: .center) {
@@ -88,6 +90,7 @@ struct iOSLiveDataView: View {
                     orientation = newOrientation
                 }
                 
+                // Shows Live Data for Sensor 1 (Top-Right)
                 HStack(alignment: .center) {
                     VStack(alignment: .center) {
                         Button {
@@ -132,7 +135,7 @@ struct iOSLiveDataView: View {
             Spacer()
             
             HStack {
-                
+                // Shows Live Data for Sensor 2 (Bottom-Left)
                 HStack(alignment: .center) {
                     VStack(alignment: .center) {
                         Button {
@@ -152,6 +155,7 @@ struct iOSLiveDataView: View {
                     }
                 }.frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
                 
+                // Extra horizontal spacer if landscape view detected
                 Group {
                     if orientation.isLandscape {
                         HStack(alignment: .center) {
@@ -162,6 +166,7 @@ struct iOSLiveDataView: View {
                     orientation = newOrientation
                 }
                 
+                // Shows Live Data for Sensor 3 (Bottom-Right)
                 HStack(alignment: .center) {
                     VStack(alignment: .center) {
                         Button {

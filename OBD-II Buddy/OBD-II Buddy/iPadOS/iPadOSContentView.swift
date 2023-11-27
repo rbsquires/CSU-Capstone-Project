@@ -12,7 +12,7 @@ struct iPadOSContentView: View {
     @State private var isRotating = 0.0
     
     var body: some View {
-        
+        // Shows loading screen during Bluetooth init and vehicle info request
         if bluetoothService.populateData {
             NavigationView {
                 ContentUnavailableView {
@@ -36,6 +36,7 @@ struct iPadOSContentView: View {
                 .navigationTitle("OBD-II Buddy")
             }
         }
+        // Shows available Bluetooth peripherals
         else if bluetoothService.peripheralStatus != .connected && !bluetoothService.populateData {
             NavigationView {
                 VStack {
@@ -60,6 +61,7 @@ struct iPadOSContentView: View {
             }
             .environmentObject(bluetoothService)
         }
+        // Main menu when connected to OBD-II Bluetooth device
         else {
             NavigationView {
                 VStack {

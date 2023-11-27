@@ -140,7 +140,7 @@ extension BluetoothService: CBCentralManagerDelegate {
 }
 
 extension BluetoothService: CBPeripheralDelegate {
-    
+    // Function used to discover Bluetooth peripheral services in your area
     func peripheral(_ peripheral: CBPeripheral, didDiscoverServices error: Error?) {
         for service in peripheral.services ?? [] {
             print("found service for \(service)")
@@ -148,24 +148,21 @@ extension BluetoothService: CBPeripheralDelegate {
         }
     }
     
+    // Function used to discover characteristics of the Bluetooth peripherals in your area
     func peripheral(_ peripheral: CBPeripheral, didDiscoverCharacteristicsFor service: CBService, error: Error?) {
         for characteristic in service.characteristics ?? [] {
+            // Only allowing the vehicle communication code to be ran for the iOS-Vlink BLE device
             if (String(describing: characteristic.uuid)) == "BEF8D6C9-9C21-4C9E-B632-BD58C1009F9F" {
                 obdSensorCharacteristic = characteristic
                 peripheral.setNotifyValue(true, for: characteristic)
-                //                print("Found \(characteristic), waiting on values:")
-                //                print("Characteristic Value: \(String(describing: characteristic.value))")
                 
+                // Initializing bluetooth connection to iOS-Vlink and asking for supported OBD-II protocol
                 if openedApp && populateData {
                     let char = characteristic
                     var counter = 3
-                    print("made it into initializing Data")
                     
-                    //                    let btTimer = Timer.publish(every: 1.5, tolerance: 0.5, on: .main, in: .common).autoconnect() { time in
-                    //
-                    //                    }
+                    // Requesting vehicle protocol
                     if dataParser.obdProtocol == "" {
-                        // Requesting vehicle protocol
                         peripheral.writeValue(commands[2], for: char, type: CBCharacteristicWriteType.withResponse)
                         
                         peripheral.readValue(for: char)
@@ -173,34 +170,30 @@ extension BluetoothService: CBPeripheralDelegate {
                     
                     sendData = true
                     
-                    print("made it past protocol check")
-                    
+                    // Timer to populate vehicle information and gather supported sensor list
                     Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true) { [self] timer in
                         
                         requestData(index: counter)
-                        print("sent requestData \(counter)")
                         counter += 1
                         
                         if(counter == 10){
                             timer.invalidate()
-                            print("timer invalidated!")
                             populateData = false
                             
                         }
                     }
-                    
-                    print("exited timer and initializing data")
-                    
                 }
                 
-                //                populateData = false
+
                 openedApp = false
-                //                sendData = true
+//                sendData = true
+//                populateData = false
                 
             }
         }
     }
     
+    // Function used to request given data from the vehicle ECU through the OBD-II bus
     func requestData(index: Int) {
         if ((obdSensorPeripheral?.canSendWriteWithoutResponse) != nil && sendData) {
             if index == 0 {
@@ -208,22 +201,17 @@ extension BluetoothService: CBPeripheralDelegate {
                 
                 for iter in 0...3 {
                     tempString.append(dataParser.liveData[iter].pidName)
-                    //                    print("tempString in rData() \(tempString)")
+
                 }
                 tempString.append("\r\n")
                 
                 commands[0] = tempString.data(using: .utf8)!
             }
             
-            //            print("Made it into items loop")
             if sendData {
-                //                print("Made it into sendData check")
                 self.write(value: commands[index], characteristic: self.obdSensorCharacteristic!)
                 self.read(characteristic: self.obdSensorCharacteristic!)
-                
-                //                print("Sent item \(String(data:commands[index], encoding:.utf8)!) to \(String(describing: obdSensorCharacteristic))\n in the new peripheralIsReady()!")
             }
-            
         }
     }
     
@@ -232,11 +220,10 @@ extension BluetoothService: CBPeripheralDelegate {
         print("Checked peripheralIsReady()")
     }
     
-    
+    // Function used to communicate with the selected characteristic of the Bluetooth peripheral
     func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor characteristic: CBCharacteristic, error: Error?) {
-        print("func Peripheral didUpdateValue() called")
+
         if let value = characteristic.value {
-            //            print("Printing from PeripheralID: \(peripheral.identifier)\n and CharacteristicUUID: \(characteristic.uuid)")
             print(String(data:value, encoding:.utf8)!)
             
             dataParser.returnedString = String(data:value, encoding:.utf8) ?? "nil"
@@ -271,23 +258,21 @@ extension BluetoothService: CBPeripheralDelegate {
                 dataParser.showProtocol(dataParser.returnedString)
             }
             
-            // Decoding called for supported PIDs 01-20: 41 00 BF 9F E8 93
+            // Decoding called for supported PIDs
             if dataParser.returnedString.contains("41 00 ") ||
                 dataParser.returnedString.contains("41 20 ") ||
                 dataParser.returnedString.contains("41 40 ") ||
                 dataParser.returnedString.contains("41 51 ") {
                 
-                //                print("*** Called supported PIDs ***")
                 let realString = dataParser.returnedString.components(separatedBy:.whitespaces)
                 var dataString = ""
-                
                 
                 for item in realString {
                     if !item.contains("\r") {
                         dataString += item
                     }
                 }
-                print(dataString)
+//                print(dataString)
                 dataParser.convertStringData(dataString)
             }
             
@@ -427,44 +412,17 @@ extension BluetoothService: CBPeripheralDelegate {
                     dataParser.convertStringData(dataString)
                     
                 }
-                
             }
-            /* Response for multi-sensors need to compare to DTCs
-             00C
-             0: 41 10 00 3C 0C 00
-             1: 00 42 30 4B 0F 67 00
-             */
-            /*
-             When unplugged MAF and Throttle Body
-             00C
-             0: 43 05 01 02 01 13
-             1: 01 21 01 23 21 35 00
-             */
             
+            // Setting flag to allow requestData() calling
             if dataParser.returnedString.contains(">") {
-                //                print("The dataParser contained the '>' I was looking for:")
-                //                print(dataParser.returnedString)
                 sendData = true
-                //                print("Value of sendData = \(sendData)")
             }
         }
         
-        //        print("**** displayData = \(dataParser.displayData)\n")
-        dataParser.displayData.removeAll()
-        //        print("Erased displayData")
-        //        print("**** displayData = \(dataParser.displayData)\n")
         
-        // ******************** MIGHT USE GUARD FROM BELOW ********************
-        //        if characteristic.uuid == hallSensorCharacteristic {
-        //            guard let data = characteristic.value else {
-        //                print("No data received for \(characteristic.uuid.uuidString)")
-        //                return
-        //            }
-        //
-        //            let sensorData: Int = data.withUnsafeBytes { $0.pointee }
-        //
-        //            magnetValue = sensorData
-        //        }
+        dataParser.displayData.removeAll()
+        
     }
     
 }

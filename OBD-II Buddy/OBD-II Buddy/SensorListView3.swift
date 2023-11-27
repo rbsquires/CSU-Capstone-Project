@@ -12,6 +12,7 @@ struct SensorListView3: View {
     @Environment(\.dismiss) var dismiss // environment object that keeps track of what is shown
     
     var body: some View {
+        // Shows sensor 3 position available and not available sensors in sheet
         NavigationStack {
             List(bluetoothService.dataParser.liveSensors, id: \.self) { sensor in
                 VStack(alignment: .leading) {

@@ -11,6 +11,7 @@ struct BluetoothConnectionViewToolbar: View {
     @EnvironmentObject var bluetoothService: BluetoothService
     
     var body: some View {
+        // Displays the toolbar, with Bluetooth connection status and vehicle communication symbols
         HStack {
             
             if bluetoothService.peripheralStatus == .connected {

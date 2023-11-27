@@ -19,13 +19,14 @@ struct iPadOSLiveDataView: View {
     
     
     var body: some View {
-        
+        // Checking to show sensors/data or "Home Screen" directions
         if !bluetoothService.closedLiveData {
             VStack {
                 
                 Spacer()
                 
                 HStack {
+                    // Shows Live Data for Sensor 0 (Top-Leftt)
                     HStack {
                         VStack(alignment: .center) {
                             Button {
@@ -61,6 +62,7 @@ struct iPadOSLiveDataView: View {
                     
                     Spacer()
                     
+                    // Shows Live Data for Sensor 1 (Top-Right)
                     HStack(alignment: .center) {
                         VStack(alignment: .center) {
                             Button {
@@ -105,6 +107,7 @@ struct iPadOSLiveDataView: View {
                 Spacer()
                 
                 HStack {
+                    // Shows Live Data for Sensor 2 (Bottom-Left)
                     HStack(alignment: .center) {
                         VStack(alignment: .center) {
                             Button {
@@ -126,6 +129,7 @@ struct iPadOSLiveDataView: View {
                     
                     Spacer()
                     
+                    // Shows Live Data for Sensor 3 (Bottom-Right)
                     HStack(alignment: .center) {
                         VStack(alignment: .center) {
                             Button {
@@ -151,6 +155,7 @@ struct iPadOSLiveDataView: View {
             }
             .navigationBarBackButtonHidden(true)
         }
+        // Showing "Home Screen" directions if Live Data was terminated
         else {
             ContentUnavailableView {
                 Image(colorScheme == .light ? "App Logo (Light)" : "App Logo (Dark)")

@@ -12,8 +12,10 @@ struct AvailableDeviceView: View {
     @Environment(\.dismiss) var dismiss // environment object that keeps track of what is shown
     
     var body: some View {
+        // Displays available Bluetooth peripherals
         VStack {
             Form {
+                // List of Bluetooth peripherals in your area, remove if to see all devices
                 List(bluetoothService.peripherals, id: \.self) { peripheral in
                     if peripheral.identifier.description == "715F4D00-B472-1F8B-7ED0-4F10B542017E" || peripheral.identifier.description == "4BCC77F9-32AC-0C74-BB65-365ECF59F447" {
                         VStack(alignment: .leading) {

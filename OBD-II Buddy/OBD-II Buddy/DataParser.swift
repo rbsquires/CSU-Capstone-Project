@@ -54,8 +54,6 @@ class DataParser: ObservableObject {
     private var decValHolder5: Int = 0
     private var charHolder: String = ""
     var dataHolder = [String]()
-    //    var tempString: String = ""
-    
     
     let PIDBytes = [
         "04": 1,
@@ -99,6 +97,7 @@ class DataParser: ObservableObject {
         "51": "FuelType"
     ]
     
+    // Function used to populate array with sensor info
     func populateLiveData() {
         liveData.append(vehicleInfo0)
         liveData.append(vehicleInfo1)
@@ -106,17 +105,16 @@ class DataParser: ObservableObject {
         liveData.append(vehicleInfo3)
     }
     
+    // Function used to populate which sensors are shown and sort their data to be displayed
     func populateLiveSensor() {
-        //        print("*********** populateLiveSensor() ***********")
         liveSensors.removeAll()
         print("contents of supportedPIDList = \(supportedPIDList)")
         for index in 1..<supportedPIDList.count {
-            //            print("MADE IT INTO FOR LOOP")
             let hexIndex = String(format:"%02X", index)
             print("hexIndex = \(hexIndex)")
             if supportedPIDList[index] == "1" && myPIDList.contains(hexIndex) && hexIndex != "51" {
-                //                print("****** MADE IT INTO MY POPULATELIVESENSOR() IF STATEMENT ******")
-                // If it is being monitored
+
+                // If sensor is being monitored
                 if liveData[0].pidName == hexIndex || liveData[1].pidName == hexIndex ||
                     liveData[2].pidName == hexIndex || liveData[3].pidName == hexIndex {
                     
@@ -140,16 +138,16 @@ class DataParser: ObservableObject {
         }
     }
     
+    // Function used to convert hex data returned from the ECU
     func convertData(_ data: inout [String]) {
         switch data[0] {
         case "41":
-            //            print("Mode 1:")
+
             if data[1] == "00" {
                 // Call parser for supported PIDs and clear displayData[]
             }
             else if data[1] == "51" {
                 // Set fuel type from [2] and then clear displayData[]
-                //                print("Fuel Type")
                 if data[2] == "01" {
                     fuelType = "Gasoline"
                 }
@@ -157,8 +155,6 @@ class DataParser: ObservableObject {
                 displayData.removeAll()
             }
             else {
-                // Need to figure out how to parse data by PID byte size, then all calculation for that number, then pare the next one
-                //                print("data in Mode1 = \(data)")
                 data.remove(at: 0)
                 var index = 0
                 
@@ -167,7 +163,6 @@ class DataParser: ObservableObject {
                     let numberBytes = dataByteSize(data[0])
                     let pid = data[0]
                     decValHolder1 = Int(data[1], radix: 16) ?? 0
-                    //                    var calcType = ""
                     
                     if numberBytes == 1 {
                         callCalculation(pid, index, decValHolder1, 0)
@@ -185,43 +180,31 @@ class DataParser: ObservableObject {
                     
                     index += 1
                 }
-                //                print("data after removes = \(data)")
+
                 data.removeAll()
             }
             
         case "43":
-            //            print("Mode 3:")
             
             for item in data {
                 displayData.append(String(item))
             }
             
-            //            print("display data in Mode 3 case: \(displayData)")
-            
         case "49":
-            //            print("Mode 9:")
-            // Calibration ID 49040233303438323130304130433031303030
+
             if data[1] == "04" {
-                //                print("Made it into Mode 9 (04)")
                 data.remove(at: 2)
                 data.remove(at: 1)
                 data.remove(at: 0)
-                //                let tempSubstring = String(data.suffix(32))
+
                 var tempString = ""
-                //                print("tempSubstring = \(tempSubstring)")
                 
                 for item in data {
-                    //                    print("*** item = \(item) ***")
-                    //                    charHolder += String(item)
+
                     decValHolder1 = Int(item, radix: 16) ?? -1
-                    //                    calibrationID.append(String(decValHolder1))
-                    
-                    //                    print("decValHolder = \(decValHolder1)")
                     
                     let char = Character(UnicodeScalar(decValHolder1)!)
-                    
-                    //                    print("char = \(char)")
-                    
+                
                     tempString += String(char)
                     
                 }
@@ -230,9 +213,8 @@ class DataParser: ObservableObject {
                 tempString = ""
                 print("calibrationID: \(calibrationID)")
             }
-            // ECU name 490A0145434D2D456E67696E65436F6E74726F6C
             else if data[1] == "0A" {
-                //                print("Made it into Mode 9 (0A)")
+
                 data.remove(at: 2)
                 data.remove(at: 1)
                 data.remove(at: 0)
@@ -240,22 +222,15 @@ class DataParser: ObservableObject {
                 var tempString = ""
                 
                 for item in data {
-                    //                    print("*** item = \(item) ***")
-                    //                    charHolder += String(item)
+
                     decValHolder1 = Int(item, radix: 16) ?? -1
-                    //                    calibrationID.append(String(decValHolder1))
-                    //                    decValHolder1 = Int(charHolder, radix: 16) ?? 0
-                    
-                    //                    print("decValHolder = \(decValHolder1)")
+
                     if decValHolder1 != -1 {
                         let char = Character(UnicodeScalar(decValHolder1)!)
-                        
-                        //                    print("char = \(char)")
                         
                         tempString += String(char)
                         
                     }
-                    
                 }
                 
                 ecuName = tempString
@@ -264,7 +239,7 @@ class DataParser: ObservableObject {
             }
             
             else if data[1] == "02" {
-                //                print("Made it into Mode 9 (0A)")
+
                 data.remove(at: 2)
                 data.remove(at: 1)
                 data.remove(at: 0)
@@ -272,17 +247,10 @@ class DataParser: ObservableObject {
                 var tempString = ""
                 
                 for item in data {
-                    //                    print("*** item = \(item) ***")
-                    //                    charHolder += String(item)
+
                     decValHolder1 = Int(item, radix: 16) ?? -1
-                    //                    calibrationID.append(String(decValHolder1))
-                    //                    decValHolder1 = Int(charHolder, radix: 16) ?? 0
-                    
-                    //                    print("decValHolder = \(decValHolder1)")
                     
                     let char = Character(UnicodeScalar(decValHolder1)!)
-                    
-                    //                    print("char = \(char)")
                     
                     tempString += String(char)
                     
@@ -290,44 +258,11 @@ class DataParser: ObservableObject {
                 
                 vinNumber = tempString
                 tempString = ""
-                //                print("ecuName: \(vinNumber)")
             }
-            //            else {
-            //                let tempSubstring = String(data.suffix(34))
-            //                var tempString = ""
-            //                print("tempSubstring = \(tempSubstring)")
-            //
-            //                for item in tempSubstring {
-            //                    charHolder += String(item)
-            //
-            //                    if charHolder.count == 2 {
-            //                        print("charHolder = \(charHolder)")
-            //
-            //                        decValHolder1 = Int(charHolder, radix: 16) ?? 0
-            //
-            //                        print("decValHolder = \(decValHolder1)")
-            //
-            //                        let char = Character(UnicodeScalar(decValHolder1)!)
-            //
-            //                        print("char = \(char)")
-            //
-            //                        tempString += String(char)
-            //
-            //                        charHolder = ""
-            //
-            //                    }
-            //                }
-            //                vinNumber = tempString
-            //                tempString = ""
-            //                print("VIN: \(vinNumber)")
-            //
-            //            }
-            
         default:
             print("***** No case was Found for return data *****")
         }
-        
-        //        print("returned Data = \(returnedData)")
+
         liveData[0].data = returnedData[0]
         liveData[1].data = returnedData[1]
         liveData[2].data = returnedData[2]
@@ -338,7 +273,7 @@ class DataParser: ObservableObject {
     func convertStringData (_ data: String) {
         switch data[1] {
         case "1":
-            //            print("Mode 1:")
+
             var tempString = ""
             var tempString2 = ""
             var tempString3 = ""
@@ -353,17 +288,14 @@ class DataParser: ObservableObject {
                     fuelType = "Diesel"
                 }
             }
-            // 1011 1111 1001 1111 1110 1000 1001 0011
             else if (data[2] == "0" && data[3] == "0") || (data[2] == "2" && data[3] == "0")
                         || (data[2] == "4" && data[3] == "0") {
-                //                print("supportedPIDList = \(supportedPIDList)")
+
                 var tempSubstring = String(data.suffix(data.count - 4))
                 var counter = 2
                 
-                //                print("*** counter = \(counter) ***")
-                
                 while counter > 0 && tempSubstring.count > 0 {
-                    //                    print("in while loop tempSubstring2 = \(tempSubstring)")
+
                     let tempByte1 = Int(tempSubstring[0], radix: 16) ?? 0
                     let tempByte1String = String(tempByte1, radix: 2)
                     let tempByte2 = Int(tempSubstring[1], radix: 16) ?? 0
@@ -373,8 +305,6 @@ class DataParser: ObservableObject {
                     let tempByte4 = Int(tempSubstring[3], radix: 16) ?? 0
                     let tempByte4String = String(tempByte4, radix: 2)
                     var outputString = ""
-                    
-                    //                    print("tempBytes Strings = \(tempByte1String) \(tempByte2String) \(tempByte3String) \(tempByte4String)")
                     
                     switch (tempByte1String) {
                     case "0":
@@ -530,13 +460,11 @@ class DataParser: ObservableObject {
                     }
                     counter -= 1
                     tempSubstring = String(tempSubstring.suffix(tempSubstring.count - 4))
-                    //                    supportedPIDList.append(outputString)
+
                 }
-                
-                //                print("supportedPIDList = \(supportedPIDList)")
-                //                print("display data in Mode 3 case: \(displayData)")
+
                 populateLiveSensor()
-                //                print("Just called populateLiveSensor()")
+
             }
             else {
                 for(index, char) in data.enumerated() {
@@ -544,9 +472,9 @@ class DataParser: ObservableObject {
                         tempString.append(char)
                         
                         if tempString.count == 2 {
-                            //                            print(" 01 tempString = \(tempString)")
+
                             decValHolder1 = Int(tempString, radix: 16) ?? 0
-                            //                            print(" 01 decValHolder = \(decValHolder1)")
+
                         }
                     }
                     
@@ -554,9 +482,9 @@ class DataParser: ObservableObject {
                         tempString2.append(char)
                         
                         if tempString2.count == 2 {
-                            //                            print(" 01 tempString2 = \(tempString2)")
+
                             decValHolder2 = Int(tempString2, radix: 16) ?? 0
-                            //                            print(" 01 decValHolder2 = \(decValHolder2)")
+
                         }
                     }
                     
@@ -564,9 +492,9 @@ class DataParser: ObservableObject {
                         tempString3.append(char)
                         
                         if tempString3.count == 2 {
-                            //                            print(" 01 tempString3 = \(tempString3)")
+
                             decValHolder3 = Int(tempString3, radix: 16) ?? 0
-                            //                            print(" 01 decValHolder3 = \(decValHolder3)")
+
                         }
                     }
                     
@@ -574,9 +502,9 @@ class DataParser: ObservableObject {
                         tempString4.append(char)
                         
                         if tempString4.count == 2 {
-                            //                            print(" 01 tempString4 = \(tempString4)")
+
                             decValHolder4 = Int(tempString4, radix: 16) ?? 0
-                            //                            print(" 01 decValHolder4 = \(decValHolder4)")
+
                         }
                     }
                     
@@ -584,38 +512,17 @@ class DataParser: ObservableObject {
                         tempString5.append(char)
                         
                         if tempString5.count == 2 {
-                            //                            print(" 01 tempString5 = \(tempString5)")
+
                             decValHolder5 = Int(tempString5, radix: 16) ?? 0
-                            //                            print(" 01 decValHolder5 = \(decValHolder5)")
+
                         }
                     }
                 }
             }
-            //            print("post case: decValHolder = \(decValHolder1)")
             
         case "3":
             print("Mode 3:")
-            // 43 02 01 02 01 13 response for MAF unplugged
-            // Hex to binary conversion 13 = 00010011
-            // 01 02 = 0000 0001 0000 0010
-            //         P  0   1    0    2
-            // 01 13 = 0000 0001 0001 0011
-            //         P  0   1    1    3
             
-            /* q
-             
-             43 05 01 02 01 13 01 21 01 23 21 35 00
-             01 02 = 0000 0001 0000 0010
-             P  0   1    0    2
-             01 13 = 0000 0001 0001 0011
-             P  0   1    1    3
-             01 21 = 0000 0001 0010 0001
-             P  0   1    2    1
-             01 23 = 0000 0001 0010 0011
-             P  0   1    2    3
-             21 35 = 0010 0001 0011 0101
-             P  2   1    3    5
-             */
             
             var tempSubstring = String(data.suffix(data.count - 2))
             var tempString = ""
@@ -626,11 +533,10 @@ class DataParser: ObservableObject {
             }
             var counter = Int(tempString, radix: 16) ?? 0
             tempString = ""
-            //            print("*** counter = \(counter) ***")
             tempSubstring = String(tempSubstring.suffix(tempSubstring.count - 2))
             
             while counter > 0 && tempSubstring.count > 4 {
-                //                print("in while loop tempSubstring2 = \(tempSubstring)")
+
                 let tempByte1 = Int(tempSubstring[0], radix: 16) ?? 0
                 let tempByte1String = String(tempByte1, radix: 2)
                 let tempByte2 = Int(tempSubstring[1], radix: 16) ?? 0
@@ -640,8 +546,6 @@ class DataParser: ObservableObject {
                 let tempByte4 = Int(tempSubstring[3], radix: 16) ?? 0
                 let tempByte4String = String(tempByte4, radix: 2)
                 var outputString = ""
-                
-                //                print("tempBytes Strings = \(tempByte1String) \(tempByte2String) \(tempByte3String) \(tempByte4String)")
                 
                 switch (tempByte1String) {
                 case "0":
@@ -799,26 +703,19 @@ class DataParser: ObservableObject {
             print("display data in Mode 3 case: \(displayData)")
             
         case "9":
-            //            print("Mode 9:")
             
             if data[3] == "4" {
                 let tempSubstring = String(data.suffix(32))
                 var tempString = ""
-                //                print("tempSubstring = \(tempSubstring)")
                 
                 for item in tempSubstring {
                     charHolder += String(item)
                     
                     if charHolder.count == 2 {
-                        //                        print("charHolder = \(charHolder)")
                         
                         decValHolder1 = Int(charHolder, radix: 16) ?? 0
-                        
-                        //                        print("decValHolder = \(decValHolder1)")
-                        
+
                         let char = Character(UnicodeScalar(decValHolder1)!)
-                        
-                        //                        print("char = \(char)")
                         
                         tempString += String(char)
                         
@@ -828,26 +725,20 @@ class DataParser: ObservableObject {
                 }
                 calibrationID = tempString
                 tempString = ""
-                //                print("calibrationID: \(calibrationID)")
+                
             }
             else if data[3] == "A" {
                 let tempSubstring = String(data.suffix(36))
                 var tempString = ""
-                //                print("tempSubstring = \(tempSubstring)")
                 
                 for item in tempSubstring {
                     charHolder += String(item)
                     
                     if charHolder.count == 2 {
-                        //                        print("charHolder = \(charHolder)")
                         
                         decValHolder1 = Int(charHolder, radix: 16) ?? 0
                         
-                        //                        print("decValHolder = \(decValHolder1)")
-                        
                         let char = Character(UnicodeScalar(decValHolder1)!)
-                        
-                        //                        print("char = \(char)")
                         
                         tempString += String(char)
                         
@@ -857,26 +748,20 @@ class DataParser: ObservableObject {
                 }
                 ecuName = tempString
                 tempString = ""
-                //                print("ecuName: \(ecuName)")
+
             }
             else {
                 let tempSubstring = String(data.suffix(34))
                 var tempString = ""
-                //                print("tempSubstring = \(tempSubstring)")
                 
                 for item in tempSubstring {
                     charHolder += String(item)
                     
                     if charHolder.count == 2 {
-                        //                        print("charHolder = \(charHolder)")
                         
                         decValHolder1 = Int(charHolder, radix: 16) ?? 0
                         
-                        //                        print("decValHolder = \(decValHolder1)")
-                        
                         let char = Character(UnicodeScalar(decValHolder1)!)
-                        
-                        //                        print("char = \(char)")
                         
                         tempString += String(char)
                         
@@ -886,49 +771,22 @@ class DataParser: ObservableObject {
                 }
                 vinNumber = tempString
                 tempString = ""
-                //                print("VIN: \(vinNumber)")
                 
             }
-            
-            
-            //            print("Asked for Vehicle Info (Ex: VIN)")
-            //            vinNumber = tempString
-            //            tempString = ""
-            //            print("VIN: \(vinNumber)")
-            
-            
-            
+
         default:
             print("No case was Found for return data")
         }
-        
-        
-        
-        //        print("Value held in monitor1Data (after for) = \(monitor1Data)\n")
-        //        print("**** displayData = \(displayData)\n")
-        //        displayData.removeAll()
-        //        print("intData = \(intData)\n")
-        //        print("returnedString = \(returnedString)")
-        
-        //        vehicleInfo1 = 0.0
+
         returnedString = ""
     }
     
+    // Function used to return the number of bytes returned for a PID
     func dataByteSize(_ pid: String) -> Int {
-        // Need to make a type that has PID and number of data bytes returned, then look it up here, and return that number of bytes
         
         return PIDBytes[pid] ?? 0
     }
-    
-    // ****** MAY NOT NEED ******
-    func parseOneBytePID(_ data: [String]) {
-        
-    }
-    // ****** MAY NOT NEED ******
-    func parseTwoBytePID(_ data: [String]) {
-        
-    }
-    
+
     // Used to call the appropriate calculation per PID
     func callCalculation(_ pid: String, _ index: Int, _ int1: Int, _ int2: Int) {
         switch pid {
@@ -977,6 +835,7 @@ class DataParser: ObservableObject {
         }
     }
     
+    // Function used to set the OBD-II protocol
     func showProtocol(_ data: String) {
         if data.contains("ISO 15765-4 (CAN 11/500)") {
             obdProtocol = "ISO 15765-4 (CAN 11bit / 500kbaud)"
@@ -984,6 +843,7 @@ class DataParser: ObservableObject {
         returnedString = ""
     }
     
+    // Function used to calculate pressure from
     func calculatePressure(_ int: Int) -> Int {
         let tempInt = Double(int)
         
@@ -991,13 +851,14 @@ class DataParser: ObservableObject {
         
     }
     
+    // Function used to calculate fuel pressure from
     func calculateFuelPressure(_ int: Int) -> Int {
         let tempInt = Double(int * 3)
         
         return Int(tempInt * 0.145038)
         
     }
-    
+     // Function used to calculate temperature in F
     func calculateTemp(_ int: Int) -> Int {
         let tempInt = Double(int - 40)
         
@@ -1005,20 +866,23 @@ class DataParser: ObservableObject {
         
     }
     
+    // Fucntion used to calculate MAF sensor air flow rate g/s
     func calculateMAF(_ intA: Int, _ intB: Int) -> Int {
         let tempInt1 = Double(intA)
         let tempInt2 = Double(intB)
-        
+        //        lbs/hr calculation - too small a number to show at idle
         //        return Int((((256 * tempInt1) + tempInt2) / 100) * 0.002205)
         return Int(((256 * tempInt1) + tempInt2) / 100)
     }
     
+    // Function used to calculate %
     func calculatePercentage(_ int: Int) -> Int {
         let tempInt = Double(int)
         
         return Int(tempInt / 2.55)
     }
     
+    // Function used to calculate voltage of the ECU
     func calculateVoltage(_ intA: Int, _ intB: Int) -> Int {
         let tempInt1 = Double(intA)
         let tempInt2 = Double(intB)
@@ -1026,12 +890,14 @@ class DataParser: ObservableObject {
         return Int(((256 * tempInt1) + tempInt2) / 1000)
     }
     
+    // Function used to calculate vehicle speed in MPH
     func calculateVehicleSpeed(_ int: Int) -> Int {
         let tempInt = Double(int)
         
         return Int(tempInt / 1.6093440006147)
     }
     
+    // Function used to calculate engine speed in RPM
     func calculateEngineSpeed(_ intA: Int, _ intB: Int) -> Int {
         let tempInt1 = Double(intA)
         let tempInt2 = Double(intB)
@@ -1041,6 +907,7 @@ class DataParser: ObservableObject {
     
 }
 
+// Extension to help parse string data
 extension String {
     subscript(idx: Int) -> String {
         String(self[index(startIndex, offsetBy: idx)])

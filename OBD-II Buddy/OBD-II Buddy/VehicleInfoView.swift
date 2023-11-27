@@ -11,7 +11,7 @@ struct VehicleInfoView: View {
     @EnvironmentObject var bluetoothService: BluetoothService
     
     var body: some View {
-        
+        // Displays generic vehicle information
         Form {
             VStack {
                 HStack {

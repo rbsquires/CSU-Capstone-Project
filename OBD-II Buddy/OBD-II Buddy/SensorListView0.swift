@@ -13,6 +13,7 @@ struct SensorListView0: View {
     
     
     var body: some View {
+        // Shows sensor 0 position available and not available sensors in sheet
         NavigationStack {
             List(bluetoothService.dataParser.liveSensors, id: \.self) { sensor in
                 VStack(alignment: .leading) {
