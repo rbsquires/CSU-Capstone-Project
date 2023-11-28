@@ -78,7 +78,7 @@ After achieving successful *Bluetooth* pairing and building the ability to send/
     - screenshots with numbered captions (e.g., Fig 1. The loading screen.)
 ### Description:
 
-&emsp;&emsp;OBD-II Buddy was built as a personal alternative to OBD-II *Bluetooth* apps such as *Carly*, *FIXD*, and *OBD Fusion*. It is built to be lightweight, responsive and easy to use. The user can open the app and check live data for sensors such as: Coolant Temperature, Intake Air Temperature, Engine Speed, Vehicle Speed, MAF rate, Engine Laod, Battery Voltage and Throttle Position. They can also scan for any Diagnostic Trouble Codes (DTCs), clear DTCs, and view generic vehicle data such as their Vehicle Identification Number (VIN). The application is scalable and customizable for each user's unique needs.
+&emsp;&emsp;OBD-II Buddy was built as a personal alternative to OBD-II *Bluetooth* apps such as *Carly*, *FIXD*, etc. It is built to be lightweight, responsive and easy to use. The user can open the app and check live data for sensors such as: Coolant Temperature, Intake Air Temperature, Engine Speed, Vehicle Speed, MAF rate, Engine Laod, Battery Voltage and Throttle Position. They can also scan for any Diagnostic Trouble Codes (DTCs), clear DTCs, and view generic vehicle data such as their Vehicle Identification Number (VIN). The application is scalable and customizable for each user's unique needs.
 
 ### Design:
 The user needs to  ensure that their OBD-II BLE device is fully connected to the ODD-II port under the dash. The user can then turn their vehicle's key to the on position or start the vehicle. Then start the app by tapping the OBD-II Buddy app icon (see Fig 1).
