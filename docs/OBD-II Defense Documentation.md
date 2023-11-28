@@ -278,3 +278,7 @@ I spent a lot of time thinking of the project I wanted to develop. Unfortunately
 - Publish application to the App Store
 
 # Presentation Slides
+
+<a href="https://github.com/rbsquires/CSU-Capstone-Project/blob/main/media/pdf/OBD-II%20Buddy%20Presentation.pdf" target="_blank">Presentation Slides</a>
+
+![Presentation-Slides](https://github.com/rbsquires/CSU-Capstone-Project/blob/main/media/pdf/OBD-II%20Buddy%20Presentation.pdf)
