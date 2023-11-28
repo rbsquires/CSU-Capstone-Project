@@ -25,7 +25,7 @@ I will write the application in Swift and SwiftUI.
 I will use Xcode for the entire development process of the application, to include: SwiftUI, CoreBluetooth, and Foundation frameworks.
 
 # Additional Software/Equipment Needed
-I will need to use Xcode on my MacBook (Ventura 13.6) for development, and deploy the applicaton on iPhone (iOS 16) and iPad (iPadOS 16). I will also need an ELM 327 OBD-II Bluetooth Low Energy adapter. ![Vgate-iCar-Pro-Bluetooth-4.0-(BLE)] (https://www.amazon.com/gp/product/B06XGB4873/ref=ppx_yo_dt_b_asin_title_o02_s00?ie=UTF8&th=1)
+I will need to use Xcode on my MacBook (Ventura 13.6) for development, and deploy the applicaton on iPhone (iOS 16) and iPad (iPadOS 16). I will also need an ELM 327 OBD-II Bluetooth Low Energy adapter such as: <a href="https://www.amazon.com/gp/product/B06XGB4873/ref=ppx_yo_dt_b_asin_title_o02_s00?ie=UTF8&th=1" target="_blank">Vgate iCar Pro Bluetooth 4.0 (BLE)</a>
 
 # Outline of Future Research Efforts
 I will have to learn to code in Swift/SwiftUI, which will include learning syntax from the ground up, and more advanced concepts for data retrieval, manipulation, and output for the GUI.

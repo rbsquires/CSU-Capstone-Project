@@ -10,16 +10,19 @@ This application will allow you connect to your vehicle's OBD-II port via Blueto
 
 ## Compile/Deploy
 
-- To get started, clone the repo.
-- Then open the project in Xcode.
-- Turn your iPhone or iPad to developer mode on
-- Connect your iPhone or iPad to your Mac.
-- Select your device in Xcode and press *cmd+r*
+- To get started, clone the repo
+- Open the project in Xcode
+- Turn your iPhone or iPad developer mode *ON*
+- Connect your iPhone or iPad to your Mac
+- Select your device in Xcode
 
+```Swift
+cmd(⌘) + r
+```
 **Once the app has been loaded onto your device, it will be useable as long as developer mode is on*
 
 ## Usage
-*Once you have OBD-II Buddy loaded onto your iPhone or iPad*
+*After you have OBD-II Buddy loaded onto your iPhone or iPad*
 
 First you will want to ensure that your OBD-II BLE adpater is fully connected to the ODD-II port under your dash. Then start the app by clicking the OBD-II Buddy app icon (see Fig 1).
 iPhone | iPad
