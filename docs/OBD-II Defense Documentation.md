@@ -11,7 +11,7 @@ Document #004
 
 In an ideal world, if an individual wanted to know detailed information about their vehicle’s state, they could just open their phone and see it. Unfortunately, individuals must buy a diagnostic reading tool to perform this task and potentially spend thousands of dollars for high-end proprietary software to see their vehicle's valuable data.
 
-I propose making an open-source application that anyone could use on an Apple iPhone or iPad, that could read their vehicle's data and offer a customizable UI experience. With a tool like that, a user could select the vehicle data that they would like to monitor, set it in their preferred location on the screen and never have to miss out on the ability to monitor their vehicle ever again.
+I made an open-source application that anyone can use on an *Apple iPhone* or *iPad*, that can read their vehicle's data and offer a customizable UI experience. With this tool, a user can select the vehicle data that they would like to monitor, set it in their preferred location on the screen and never have to miss out on the ability to monitor their vehicle ever again.
 
 # Research and Background
 ### Swift and SwiftUI:
