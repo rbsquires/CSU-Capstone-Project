@@ -83,7 +83,7 @@ iPhone | iPad
 You may leave the Live Data View at anytime, by double tapping on the OBD-II Buddy image in the middle of the view. Note that on iPad there is slightly different functionality. Once the OBD-II Buddy image is double tapped, the Live Data View will disappear, showing optional directions to the user (see Fig 9).
 iPhone | iPad
 :-------------------------:|:-------------------------:
-![iPhone-Homescreen](https://github.com/rbsquires/CSU-Capstone-Project/blob/main/media/images/OBD-II%20Buddy%20Pictures/iPhone/iPhone%20Main%20Menu.png) | ![iPad-Homescreen](https://github.com/rbsquires/CSU-Capstone-Project/blob/main/media/images/OBD-II%20Buddy%20Pictures/iPad/iPad%20Home%20Screen.png)
+![iPhone-Homescreen](https://github.com/rbsquires/CSU-Capstone-Project/blob/main/media/images/OBD-II%20Buddy%20Pictures/iPhone/iPhone%20Connected%20Bluetooth.png) | ![iPad-Homescreen](https://github.com/rbsquires/CSU-Capstone-Project/blob/main/media/images/OBD-II%20Buddy%20Pictures/iPad/iPad%20Home%20Screen.png)
 
 *Fig 9. Closing Live Data View*
 
