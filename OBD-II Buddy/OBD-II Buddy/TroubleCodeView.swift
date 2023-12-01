@@ -52,11 +52,18 @@ struct TroubleCodeView: View {
         else {
             VStack {
                 Form {
-                    Text("No DTCs Found")
-                        .bold()
-                        .font(.headline)
-                        .foregroundColor(.primary)
-                        .lineLimit(1)
+                    ContentUnavailableView {
+                        Image(systemName: "hand.thumbsup.circle")
+                            .foregroundColor(.green)
+                            .font(.system(size: 64))
+                            .symbolEffect(.pulse)
+                        
+                        Text("No DTCs Found")
+
+                    } description: {
+
+                        Text("Please select another option from the Main Menu")
+                    }
                 }
                 .navigationTitle("Diagnostic Trouble Codes")
                 .background(Color.gray)

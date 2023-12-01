@@ -33,7 +33,7 @@ After achieving successful *Bluetooth* pairing and building the ability to send/
 - <a href="https://en.wikipedia.org/wiki/OBD-II_PIDs" target="_blank">OBD-II PIDs</a>
 
 ### ELM 327 BLE:
-&emsp;&emsp;Bridging the gap between the user's device and the vehicle's OBD-II port is the ELM 327 microcontroller, developed by *ELM Electronics*. This microcontroller is built into most OBD-II BLE devices and is used to pass data between the application and the vehicle. The ELM 327 allows the user to send AT commands to configure the BLE device, as well as communicate with the vehicle's Engine Control Unit (ECU). The microcontroller also allows for protocol specific commands and a wide range of setting adjustments to suit the user's needs. Below is a detailed breakdown of ELM 327 microcontrollers from the manufacturer:
+&emsp;&emsp;Bridging the gap between the user's device and the vehicle's OBD-II port is the ELM 327 microcontroller, developed by *ELM Electronics*. This microcontroller is built into most OBD-II BLE devices and is used to pass data between the application and the vehicle. The ELM 327 allows the user to send AT commands to configure the BLE device, as well as communicate with the vehicle's Electronic Control Unit (ECU). The microcontroller also allows for protocol specific commands and a wide range of setting adjustments to suit the user's needs. Below is a detailed breakdown of ELM 327 microcontrollers from the manufacturer:
 
 - <a href="https://www.elmelectronics.com/DSheets/ELM327DSH.pdf" target="_blank">*ELM 327 OBD to RS232 Interpreter*</a>
 
@@ -271,14 +271,13 @@ Establishing the *Bluetooth* connection using the *Core Bluetooth* framework was
 I spent a lot of time thinking of the project I wanted to develop. Unfortunately, life happens and pairing that with the decision to change my application to be for *Apple* devices I limited myself on time. I was able to redo my documentation and complete the full development cycle in under 6 months.
 
 # Future Enhancements
-- Save user data to iCloud
+I would like to continue expanding the scale and scope of OBD-II Buddy. A few of my future goals are listed below:
+- Save user preference data to iCloud
 - Add PIDs and manufacturer specific PIDs
-- Data parsing functionality for other manufacturers
+- Data parsing support for other manufacturers
 - Refactor code to run on macOS
-- Publish application to the App Store
+- Publish OBD-II Buddy to the App Store
 
 # Presentation Slides
 
 <a href="https://github.com/rbsquires/CSU-Capstone-Project/blob/main/media/pdf/OBD-II%20Buddy%20Presentation.pdf" target="_blank">Presentation Slides</a>
-
-![Presentation-Slides](https://github.com/rbsquires/CSU-Capstone-Project/blob/main/media/pdf/OBD-II%20Buddy%20Presentation.pdf)

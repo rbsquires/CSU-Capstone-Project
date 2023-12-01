@@ -48,7 +48,7 @@ struct iPadOSContentView: View {
                             .bold()
                             .frame(width: 300, height: 50)
                             .font(.body)
-                            .foregroundColor(.primary)
+                            .foregroundColor(.white)
                             .background(Color.blue)
                             .cornerRadius(10)
                     })
@@ -73,7 +73,7 @@ struct iPadOSContentView: View {
                             .bold()
                             .frame(width: 280, height: 50)
                             .font(.body)
-                            .foregroundColor(.primary)
+                            .foregroundColor(.white)
                             .background(Color.blue)
                             .cornerRadius(10)
                         
@@ -94,7 +94,7 @@ struct iPadOSContentView: View {
                             .bold()
                             .frame(width: 280, height: 50)
                             .font(.body)
-                            .foregroundColor(.primary)
+                            .foregroundColor(.white)
                             .background(Color.blue)
                             .cornerRadius(10)
                         
@@ -112,7 +112,7 @@ struct iPadOSContentView: View {
                             .bold()
                             .frame(width: 280, height: 50)
                             .font(.body)
-                            .foregroundColor(.primary)
+                            .foregroundColor(.white)
                             .background(Color.blue)
                             .cornerRadius(10)
                     }.simultaneousGesture(TapGesture().onEnded{

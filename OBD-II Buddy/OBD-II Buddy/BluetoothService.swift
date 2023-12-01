@@ -253,7 +253,7 @@ extension BluetoothService: CBPeripheralDelegate {
             
             dataParser.dataHolder.removeAll()
             
-            // Decoding called for Request Response
+            // Decoding called for Protocol Request Response
             if dataParser.returnedString.hasPrefix("I") {
                 dataParser.showProtocol(dataParser.returnedString)
             }
