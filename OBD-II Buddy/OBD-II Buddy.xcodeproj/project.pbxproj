@@ -24,6 +24,9 @@
 		3AB3D13E2B0E83DA00964426 /* TroubleCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB3D13D2B0E83DA00964426 /* TroubleCodeView.swift */; };
 		3AB3D1402B0E83E200964426 /* VehicleInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB3D13F2B0E83E200964426 /* VehicleInfoView.swift */; };
 		3AB3D1422B0E91FA00964426 /* iPadOSLiveDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB3D1412B0E91FA00964426 /* iPadOSLiveDataView.swift */; };
+		3ACD7F872B3912D80037AFA1 /* BlueButtonModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACD7F862B3912D80037AFA1 /* BlueButtonModifier.swift */; };
+		3AD48AEE2B39145D001F9C9F /* SensorDescriptionModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD48AED2B39145D001F9C9F /* SensorDescriptionModifier.swift */; };
+		3AD48AF02B391535001F9C9F /* SensorDataModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD48AEF2B391535001F9C9F /* SensorDataModifier.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +48,9 @@
 		3AB3D13D2B0E83DA00964426 /* TroubleCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TroubleCodeView.swift; sourceTree = "<group>"; };
 		3AB3D13F2B0E83E200964426 /* VehicleInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleInfoView.swift; sourceTree = "<group>"; };
 		3AB3D1412B0E91FA00964426 /* iPadOSLiveDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iPadOSLiveDataView.swift; sourceTree = "<group>"; };
+		3ACD7F862B3912D80037AFA1 /* BlueButtonModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlueButtonModifier.swift; sourceTree = "<group>"; };
+		3AD48AED2B39145D001F9C9F /* SensorDescriptionModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorDescriptionModifier.swift; sourceTree = "<group>"; };
+		3AD48AEF2B391535001F9C9F /* SensorDataModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorDataModifier.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,19 +101,10 @@
 		3AAA626F2B0C552E007986E0 /* OBD-II Buddy */ = {
 			isa = PBXGroup;
 			children = (
-				3AAA62702B0C552E007986E0 /* OBD_II_BuddyApp.swift */,
-				3AB3D12B2B0E830B00964426 /* BluetoothService.swift */,
-				3AB3D12D2B0E834300964426 /* DataParser.swift */,
-				3A615EFC2B0FE6BD008BDEDB /* iOS */,
-				3A615EFB2B0FE68A008BDEDB /* iPadOS */,
-				3AB3D12F2B0E838000964426 /* AvailableDeviceView.swift */,
-				3AB3D1312B0E839100964426 /* BluetoothConnectionViewToolbar.swift */,
-				3AB3D1352B0E83B000964426 /* SensorListView0.swift */,
-				3AB3D1372B0E83B700964426 /* SensorListView1.swift */,
-				3AB3D1392B0E83C600964426 /* SensorListView2.swift */,
-				3AB3D13B2B0E83D000964426 /* SensorListView3.swift */,
-				3AB3D13D2B0E83DA00964426 /* TroubleCodeView.swift */,
-				3AB3D13F2B0E83E200964426 /* VehicleInfoView.swift */,
+				3ACD7F832B3911FD0037AFA1 /* App */,
+				3ACD7F842B39121D0037AFA1 /* Core */,
+				3ACD7F852B39127B0037AFA1 /* Utilities */,
+				3ACD7F822B3911E80037AFA1 /* Views */,
 				3AAA62742B0C552F007986E0 /* Assets.xcassets */,
 				3AAA62762B0C552F007986E0 /* Preview Content */,
 			);
@@ -120,6 +117,50 @@
 				3AAA62772B0C552F007986E0 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		3ACD7F822B3911E80037AFA1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3A615EFC2B0FE6BD008BDEDB /* iOS */,
+				3A615EFB2B0FE68A008BDEDB /* iPadOS */,
+				3AB3D12F2B0E838000964426 /* AvailableDeviceView.swift */,
+				3AB3D1312B0E839100964426 /* BluetoothConnectionViewToolbar.swift */,
+				3AB3D1352B0E83B000964426 /* SensorListView0.swift */,
+				3AB3D1372B0E83B700964426 /* SensorListView1.swift */,
+				3AB3D1392B0E83C600964426 /* SensorListView2.swift */,
+				3AB3D13B2B0E83D000964426 /* SensorListView3.swift */,
+				3AB3D13D2B0E83DA00964426 /* TroubleCodeView.swift */,
+				3AB3D13F2B0E83E200964426 /* VehicleInfoView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		3ACD7F832B3911FD0037AFA1 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				3AAA62702B0C552E007986E0 /* OBD_II_BuddyApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		3ACD7F842B39121D0037AFA1 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				3AB3D12B2B0E830B00964426 /* BluetoothService.swift */,
+				3AB3D12D2B0E834300964426 /* DataParser.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		3ACD7F852B39127B0037AFA1 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				3ACD7F862B3912D80037AFA1 /* BlueButtonModifier.swift */,
+				3AD48AED2B39145D001F9C9F /* SensorDescriptionModifier.swift */,
+				3AD48AEF2B391535001F9C9F /* SensorDataModifier.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -194,15 +235,18 @@
 			files = (
 				3AAA62732B0C552E007986E0 /* iOSContentView.swift in Sources */,
 				3AB3D1362B0E83B000964426 /* SensorListView0.swift in Sources */,
+				3AD48AF02B391535001F9C9F /* SensorDataModifier.swift in Sources */,
 				3AB3D1382B0E83B700964426 /* SensorListView1.swift in Sources */,
 				3AB3D13C2B0E83D000964426 /* SensorListView3.swift in Sources */,
 				3AB3D1422B0E91FA00964426 /* iPadOSLiveDataView.swift in Sources */,
 				3AB3D1402B0E83E200964426 /* VehicleInfoView.swift in Sources */,
+				3ACD7F872B3912D80037AFA1 /* BlueButtonModifier.swift in Sources */,
 				3AB3D12C2B0E830B00964426 /* BluetoothService.swift in Sources */,
 				3A615EFA2B0FE5A4008BDEDB /* iPadOSContentView.swift in Sources */,
 				3AB3D12E2B0E834300964426 /* DataParser.swift in Sources */,
 				3AB3D1302B0E838000964426 /* AvailableDeviceView.swift in Sources */,
 				3AB3D13E2B0E83DA00964426 /* TroubleCodeView.swift in Sources */,
+				3AD48AEE2B39145D001F9C9F /* SensorDescriptionModifier.swift in Sources */,
 				3AB3D1342B0E839F00964426 /* iOSLiveDataView.swift in Sources */,
 				3AAA62712B0C552E007986E0 /* OBD_II_BuddyApp.swift in Sources */,
 				3AB3D1322B0E839100964426 /* BluetoothConnectionViewToolbar.swift in Sources */,

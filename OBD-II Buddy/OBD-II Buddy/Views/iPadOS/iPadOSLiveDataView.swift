@@ -35,7 +35,7 @@ struct iPadOSLiveDataView: View {
                                 Text("\(bluetoothService.dataParser.liveData[0].data) \(bluetoothService.dataParser.PIDTypes[bluetoothService.dataParser.liveData[0].pidName] ?? "Nil")")
                             }
                             .sheet(isPresented: $showingSensors0, content: SensorListView0.init)
-                            .buttonStyle(.plain)
+                            .modifier(SensorDataModifier())
                             .onReceive(timer) { time in
                                 if bluetoothService.stopData && !showingSensors0 && !showingSensors1 && !showingSensors2 && !showingSensors3 {
                                     
@@ -50,13 +50,9 @@ struct iPadOSLiveDataView: View {
                                     timer.upstream.connect().cancel()
                                 }
                             }
-                            .font(.title)
-                            .bold()
                             
                             Text("\(bluetoothService.dataParser.PIDDescription[bluetoothService.dataParser.liveData[0].pidName] ?? "Nil")")
-                                .bold()
-                                .font(.subheadline)
-                                .lineLimit(1)
+                                .modifier(SensorDescriptionModifier())
                         }
                     }.frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
                     
@@ -71,14 +67,10 @@ struct iPadOSLiveDataView: View {
                                 Text("\(bluetoothService.dataParser.liveData[1].data) \(bluetoothService.dataParser.PIDTypes[bluetoothService.dataParser.liveData[1].pidName] ?? "Nil")")
                             }
                             .sheet(isPresented: $showingSensors1, content: SensorListView1.init)
-                            .buttonStyle(.plain)
-                            .font(.title)
-                            .bold()
+                            .modifier(SensorDataModifier())
                             
                             Text("\(bluetoothService.dataParser.PIDDescription[bluetoothService.dataParser.liveData[1].pidName] ?? "Nil")")
-                                .bold()
-                                .font(.subheadline)
-                                .lineLimit(1)
+                                .modifier(SensorDescriptionModifier())
                         }
                     }.frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
                 }
@@ -116,14 +108,10 @@ struct iPadOSLiveDataView: View {
                                 Text("\(bluetoothService.dataParser.liveData[2].data) \(bluetoothService.dataParser.PIDTypes[bluetoothService.dataParser.liveData[2].pidName] ?? "Nil")")
                             }
                             .sheet(isPresented: $showingSensors2, content: SensorListView2.init)
-                            .buttonStyle(.plain)
-                            .font(.title)
-                            .bold()
+                            .modifier(SensorDataModifier())
                             
                             Text("\(bluetoothService.dataParser.PIDDescription[bluetoothService.dataParser.liveData[2].pidName] ?? "Nil")")
-                                .bold()
-                                .font(.subheadline)
-                                .lineLimit(1)
+                                .modifier(SensorDescriptionModifier())
                         }
                     }.frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
                     
@@ -138,14 +126,10 @@ struct iPadOSLiveDataView: View {
                                 Text("\(bluetoothService.dataParser.liveData[3].data) \(bluetoothService.dataParser.PIDTypes[bluetoothService.dataParser.liveData[3].pidName] ?? "Nil")")
                             }
                             .sheet(isPresented: $showingSensors3, content: SensorListView3.init)
-                            .buttonStyle(.plain)
-                            .font(.title)
-                            .bold()
+                            .modifier(SensorDataModifier())
                             
                             Text("\(bluetoothService.dataParser.PIDDescription[bluetoothService.dataParser.liveData[3].pidName] ?? "Nil")")
-                                .bold()
-                                .font(.subheadline)
-                                .lineLimit(1)
+                                .modifier(SensorDescriptionModifier())
                         }
                     }.frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
                 }
@@ -154,6 +138,12 @@ struct iPadOSLiveDataView: View {
                 
             }
             .navigationBarBackButtonHidden(true)
+            .onAppear(perform: { // Setting screen to not dim/lock during Live Data
+                UIApplication.shared.isIdleTimerDisabled = true
+            })
+            .onDisappear(perform: { // Setting screen to dim/lock on idle
+                UIApplication.shared.isIdleTimerDisabled = false
+            })
         }
         // Showing "Home Screen" directions if Live Data was terminated
         else {
@@ -169,6 +159,9 @@ struct iPadOSLiveDataView: View {
                 Text("Live Data View, Trouble Code View or Vehicle Info View")
             }
             .navigationBarBackButtonHidden(true)
+            .onAppear(perform: { // Setting screen to dim/lock on idle
+                UIApplication.shared.isIdleTimerDisabled = false
+            })
         }
     }
 }

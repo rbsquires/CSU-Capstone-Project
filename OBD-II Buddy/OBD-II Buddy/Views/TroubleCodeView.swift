@@ -38,12 +38,7 @@ struct TroubleCodeView: View {
                     bluetoothService.requestData(index: 10)
                     bluetoothService.dataParser.dtcData.removeAll()
                 }
-                .bold()
-                .frame(width: 280, height: 50)
-                .font(.body)
-                .foregroundColor(.primary)
-                .background(Color.blue)
-                .cornerRadius(10)
+                .modifier(BlueButtonModifier())
                 
                 Spacer()
             }

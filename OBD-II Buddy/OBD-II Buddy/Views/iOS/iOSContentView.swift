@@ -1,20 +1,20 @@
 //
-//  iPadOSContentViewIPADOS.swift
+//  iOSContentView.swift
 //  OBD-II Buddy
 //
-//  Created by Bobby Squires on 11/23/23.
+//  Created by Bobby Squires on 8/14/23.
 //
 
 import SwiftUI
 
-struct iPadOSContentView: View {
+struct iOSContentView: View {
     @EnvironmentObject var bluetoothService: BluetoothService
     @State private var isRotating = 0.0
     
     var body: some View {
         // Shows loading screen during Bluetooth init and vehicle info request
         if bluetoothService.populateData {
-            NavigationView {
+            NavigationStack {
                 ContentUnavailableView {
                     Image(systemName: "gear")
                         .font(.system(size: 84))
@@ -36,21 +36,16 @@ struct iPadOSContentView: View {
                 .navigationTitle("OBD-II Buddy")
             }
         }
-        // Shows available Bluetooth peripherals
+        // Shows available Bluetooth peripherals button
         else if bluetoothService.peripheralStatus != .connected && !bluetoothService.populateData {
-            NavigationView {
+            NavigationStack {
                 VStack {
                     
                     Spacer()
                     
                     NavigationLink(destination: AvailableDeviceView(), label: {
                         Text("Show Available Bluetooth Devices")
-                            .bold()
-                            .frame(width: 300, height: 50)
-                            .font(.body)
-                            .foregroundColor(.white)
-                            .background(Color.blue)
-                            .cornerRadius(10)
+                            .modifier(BlueButtonModifier())
                     })
                     
                     Spacer()
@@ -63,70 +58,41 @@ struct iPadOSContentView: View {
         }
         // Main menu when connected to OBD-II Bluetooth device
         else {
-            NavigationView {
+            NavigationStack {
                 VStack {
                     
                     Spacer()
                     
-                    NavigationLink(destination: iPadOSLiveDataView()) {
+                    NavigationLink(destination: iOSLiveDataView()) {
                         Text("Live Data View")
-                            .bold()
-                            .frame(width: 280, height: 50)
-                            .font(.body)
-                            .foregroundColor(.white)
-                            .background(Color.blue)
-                            .cornerRadius(10)
+                            .modifier(BlueButtonModifier())
                         
-                    }
-                    .simultaneousGesture(TapGesture().onEnded{
-                        if !bluetoothService.stopData {
-                            bluetoothService.stopData.toggle()
-                            if bluetoothService.closedLiveData{
-                                bluetoothService.closedLiveData.toggle()
-                            }
-                        }
+                    }.simultaneousGesture(TapGesture().onEnded{
+                        bluetoothService.stopData.toggle()
+
                     })
                     
                     Spacer()
                     
                     NavigationLink(destination: TroubleCodeView()) {
                         Text("Trouble Code View")
-                            .bold()
-                            .frame(width: 280, height: 50)
-                            .font(.body)
-                            .foregroundColor(.white)
-                            .background(Color.blue)
-                            .cornerRadius(10)
-                        
-                    }.simultaneousGesture(TapGesture().onEnded{
-                        if bluetoothService.closedLiveData {
-                            bluetoothService.closedLiveData.toggle()
-                            print("closedLiveData = \(bluetoothService.closedLiveData)")
-                        }
-                    })
+                            .modifier(BlueButtonModifier())
+                    }
                     
                     Spacer()
                     
                     NavigationLink(destination: VehicleInfoView()) {
                         Text("Vehicle Info View")
-                            .bold()
-                            .frame(width: 280, height: 50)
-                            .font(.body)
-                            .foregroundColor(.white)
-                            .background(Color.blue)
-                            .cornerRadius(10)
-                    }.simultaneousGesture(TapGesture().onEnded{
-                        if bluetoothService.closedLiveData {
-                            bluetoothService.closedLiveData.toggle()
-                            print("closedLiveData = \(bluetoothService.closedLiveData)")
-                        }
-                    })
+                            .modifier(BlueButtonModifier())
+                    }
                     
                     Spacer()
                     
                 }
                 .navigationTitle("OBD-II Buddy")
                 .toolbar(content: BluetoothConnectionViewToolbar.init)
+                
+                
                 
             }
             .environmentObject(bluetoothService)
@@ -138,5 +104,6 @@ struct iPadOSContentView: View {
 }
 
 #Preview {
-    iPadOSContentView()
+    iOSContentView()
+        .environmentObject(BluetoothService())
 }

@@ -866,7 +866,7 @@ class DataParser: ObservableObject {
         
     }
     
-    // Fucntion used to calculate MAF sensor air flow rate g/s
+    // Function used to calculate MAF sensor air flow rate g/s
     func calculateMAF(_ intA: Int, _ intB: Int) -> Int {
         let tempInt1 = Double(intA)
         let tempInt2 = Double(intB)
