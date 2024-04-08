@@ -25,14 +25,14 @@ cmd(⌘) + r
 *After you have OBD-II Buddy loaded onto your iPhone or iPad*
 
 First you will want to ensure that your OBD-II BLE adpater is fully connected to the ODD-II port under your dash. Then start the app by clicking the OBD-II Buddy app icon (see Fig 1).
-iPhone | iPad
+iPhone (Light Mode) | iPad (Dark Mode)
 :-------------------------:|:-------------------------:
 ![iPhone-App-Icon](https://github.com/rbsquires/CSU-Capstone-Project/blob/main/media/images/OBD-II%20Buddy%20Pictures/iPhone/iPhone%20App%20Icon.png) | ![iPad-App-Icon](https://github.com/rbsquires/CSU-Capstone-Project/blob/main/media/images/OBD-II%20Buddy%20Pictures/iPad/iPad%20App%20Icon.png)
 
 *Fig 1. Device Home Screen*
 
 Then you will be prompted to allow OBD-II Buddy Bluetooth access on your device. The app uses Bluetooth to communicate with the vehicle through the OBD-II BLE adapter. Tap "OK" to continue (see Fig 2).
-iPhone | iPad
+
 :-------------------------:|:-------------------------:
 ![iPhone-BT_Access](https://github.com/rbsquires/CSU-Capstone-Project/blob/main/media/images/OBD-II%20Buddy%20Pictures/iPhone/iPhone%20Bluetooth%20Access.png) | ![iPad-BT-Access](https://github.com/rbsquires/CSU-Capstone-Project/blob/main/media/images/OBD-II%20Buddy%20Pictures/iPad/iPad%20Bluetooth%20Access.png)
 
